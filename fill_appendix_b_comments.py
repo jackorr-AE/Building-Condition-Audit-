@@ -50,6 +50,35 @@ def main() -> int:
         if loc and desc and c:
             external_comment[(n(loc), n(desc))] = c
 
+    sheet1_external_comment = {
+        "external walls": "comments_external_walls",
+        "downpipes": "comments_downpipes",
+        "gutters": "comments_gutters",
+    }
+    for r in wb.sheet1:
+        loc = (r.get("location") or "").strip()
+        if not loc:
+            continue
+        for subtype, fld in sheet1_external_comment.items():
+            c = (r.get(fld) or "").strip()
+            if c:
+                external_comment[(n(loc), n(subtype))] = c
+
+    plumbing_sheet1_comment = {
+        "taps": "comments_taps",
+        "basins": "comments_basins",
+        "toilet pans": "comments_toiletpans",
+    }
+    plumbing_comment = {}
+    for r in wb.sheet1:
+        loc = (r.get("location") or "").strip()
+        if not loc or loc.startswith("External"):
+            continue
+        for subtype, fld in plumbing_sheet1_comment.items():
+            c = (r.get(fld) or "").strip()
+            if c:
+                plumbing_comment[(n(loc), n(subtype))] = c
+
     assets_by_section = defaultdict(list)
     for r in wb.sheet3:
         at = (r.get("asset_type") or "").strip()
@@ -127,13 +156,25 @@ def main() -> int:
             comment = internal_comment.get((n(loc), n(subtype)), "")
         elif sec == "building external":
             comment = external_comment.get((n(loc), n(subtype)), "")
+        elif sec == "plumbing":
+            comment = plumbing_comment.get((n(loc), n(subtype)), "")
+            if not comment:
+                candidates = []
+                for a in assets_by_section.get("plumbing", []):
+                    if n(loc) and n(loc) not in a["loc_n"]:
+                        continue
+                    sub_n = n(subtype)
+                    if sub_n and sub_n not in a["sub_n"] and sub_n not in a["combo_n"]:
+                        continue
+                    if a["comment"]:
+                        candidates.append(a["comment"])
+                comment = first_non_empty(candidates)
         elif sec in (
             "electrical",
             "doors",
             "gates / fencing",
             "gas",
             "hvac",
-            "plumbing",
             "security",
             "defibrillator",
         ):

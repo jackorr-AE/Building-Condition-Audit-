@@ -41,6 +41,98 @@ INTERNAL_COMMENT_BY_SUBTYPE = {
     "Joinery": "comments_joinery",
 }
 
+PLUMBING_SHEET1_COMPONENTS: list[tuple[str, str, str, str, str]] = [
+    ("Taps", "type_of_taps", "condition_taps", "quantity_taps", "comments_taps"),
+    ("Basins", "type_of_basins", "condition_basins", "quantity_basins", "comments_basins"),
+    ("Toilet Pans", "type_of_toiletpans", "condition_toiletpans", "quantity_toiletpans", "comments_toiletpans"),
+]
+
+
+def comment_field_for_condition(field: str) -> str:
+    if field.startswith("condition_"):
+        return "comments_" + field[len("condition_") :]
+    return ""
+
+
+def sheet1_plumbing_rows(sheet1: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Collective plumbing on Sheet 1 (taps, basins, toilet pans) — not individual Sheet 3 assets."""
+    out: list[dict[str, str]] = []
+    for r in sheet1:
+        loc = (r.get("location") or "").strip()
+        if not loc or loc.startswith("External"):
+            continue
+        for subtype, type_field, cond_field, qty_field, comment_field in PLUMBING_SHEET1_COMPONENTS:
+            cond = (r.get(cond_field) or "").strip()
+            if not cond:
+                continue
+            out.append(
+                {
+                    "Location": loc,
+                    "Asset Sub-Type": subtype,
+                    "Type/Material": (r.get(type_field) or "").strip() if type_field else "",
+                    "Condition": cond,
+                    "Quantity": (r.get(qty_field) or "").strip() if qty_field else "",
+                    "Comments": (r.get(comment_field) or "").strip() if comment_field else "",
+                }
+            )
+    return out
+
+
+def sheet1_external_collective_rows(
+    sheet1: list[dict[str, str]],
+    external_areas: dict,
+) -> list[dict[str, str]]:
+    """Sheet 1 external collective items (walls, gutters, etc.) from project config."""
+    sheet1_by_location = {(r.get("location") or "").strip(): r for r in sheet1 if (r.get("location") or "").strip()}
+    out: list[dict[str, str]] = []
+    for area, spec in external_areas.items():
+        r = sheet1_by_location.get(area, {})
+        if not r:
+            continue
+        for field, heading in spec.get("sheet1_columns", []):
+            cond = (r.get(field) or "").strip()
+            if not cond:
+                continue
+            type_material = ""
+            if field == "condition_external_walls":
+                type_material = (r.get("type_of_external_walls") or "").strip()
+            comment_field = comment_field_for_condition(field)
+            out.append(
+                {
+                    "Location": area,
+                    "Asset Sub-Type": heading,
+                    "Type/Material": type_material,
+                    "Condition": cond,
+                    "Quantity": (r.get(f"quantity_{field[len('condition_'):]}") or "").strip(),
+                    "Unit": "",
+                    "Comments": (r.get(comment_field) or "").strip() if comment_field else "",
+                }
+            )
+    return out
+
+
+def _plumbing_section_rows(wb: FulcrumWorkbook) -> list[dict[str, str]]:
+    rows = sheet1_plumbing_rows(wb.sheet1)
+    for r in wb.sheet3:
+        at = (r.get("asset_type") or "").strip()
+        if not at.startswith("Plumbing,"):
+            continue
+        rows.append(
+            {
+                "Barcode No": (r.get("asset_id_barcode") or "").strip(),
+                "Location": (r.get("location_repeat") or "").strip(),
+                "Asset Sub-Type": split_asset_subtype(at),
+                "Type/Material": (r.get("asset_description") or "").strip(),
+                "Type of Boiler": (r.get("type_of_boiler") or "").strip(),
+                "Condition": (r.get("condition_asset") or "").strip(),
+                "Quantity": "",
+                "Comments": (r.get("descriptioncomments") or "").strip(),
+                "Last Test Result": (r.get("last_test_result") or "").strip(),
+                "Last Test Date": (r.get("last_test_date") or "").strip(),
+            }
+        )
+    return rows
+
 
 def main() -> int:
     paths = ProjectPaths()
@@ -83,7 +175,9 @@ def main() -> int:
                 }
             )
 
-    building_external_rows: list[dict[str, str]] = []
+    building_external_rows: list[dict[str, str]] = sheet1_external_collective_rows(
+        wb.sheet1, paths.config.get("external_areas", {})
+    )
     for r in wb.sheet2:
         pid = (r.get("_parent_id") or "").strip()
         loc = id_to_location.get(pid, "")
@@ -225,9 +319,8 @@ def main() -> int:
                 "Last Test Date",
             ],
         ),
-        section_from_assets(
+        (
             "Plumbing",
-            lambda at: at.startswith("Plumbing,"),
             [
                 "Barcode No",
                 "Location",
@@ -235,10 +328,12 @@ def main() -> int:
                 "Type/Material",
                 "Type of Boiler",
                 "Condition",
+                "Quantity",
                 "Comments",
                 "Last Test Result",
                 "Last Test Date",
             ],
+            _plumbing_section_rows(wb),
         ),
         section_from_assets(
             "Security",

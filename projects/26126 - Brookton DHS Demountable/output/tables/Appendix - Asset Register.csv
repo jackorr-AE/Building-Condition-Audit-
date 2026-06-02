@@ -16,11 +16,14 @@ Location,Asset Sub-Type,Condition,Comments,Last Test Result
 Internal - Home Economics,Switchboards,Good,Fully functional but locked and restricted access,Not Tested/No Record
 
 Building External
-Location,Asset Sub-Type,Type/Material,Condition,Comments
-External,Roof,Structural,Fair,Wear and tear observed along roof sheeting and external soffit edge framing minor corrosion has been observed throughout
-External,Ramp,Building Element,Fair,External timber accessible ramp with steel hand rails
-External,Subfloor Framing,Structural,Fair,Steelsubfloor framing and CHS stumps. CHS stumps in poor condition
-External,Windows,Building Element,Fair,Aluminium framed windows. Issues with fitment during seasonal changes.
+Location,Asset Sub-Type,Type/Material,Condition,Quantity,Comments
+External,External Walls,Gyprock/ACM,Fair,,"Overall in fair condition, minor splitting of some panels in several locations predominantly around the base of the external panels"
+External,Downpipes,,Fair,4,Functional
+External,Gutters,,Fair,,Functional
+External,Roof,Structural,Fair,,Wear and tear observed along roof sheeting and external soffit edge framing minor corrosion has been observed throughout
+External,Ramp,Building Element,Fair,,External timber accessible ramp with steel hand rails
+External,Subfloor Framing,Structural,Fair,,Steelsubfloor framing and CHS stumps. CHS stumps in poor condition
+External,Windows,Building Element,Fair,,Aluminium framed windows. Issues with fitment during seasonal changes.
 
 Fire
 Location,Asset Sub-Type,Condition,Comments,Last Test Result,Last Test Date
@@ -40,6 +43,8 @@ Internal - Home Economics,Ceiling Exhaust Fans,,Good,Ceiling exhaust fan is func
 Internal - Home Economics,Ceiling Fans,,Excellent,Functional (8 no.),
 
 Plumbing
-Location,Asset Sub-Type,Condition,Comments,Last Test Result,Last Test Date
-External,Hot Water Unit,Good,Functional,Pass,2021-12-14
+Location,Asset Sub-Type,Type/Material,Condition,Quantity,Comments,Last Test Result,Last Test Date
+Internal - Home Economics,Taps,Mixer,Good,7,All taps appear to be functional and in good condition,,
+Internal - Home Economics,Basins,Stainless Steel,Good,9,All basins in good condition minimal to no defects observed,,
+External,Hot Water Unit,,Good,,Functional,Pass,2021-12-14
 
