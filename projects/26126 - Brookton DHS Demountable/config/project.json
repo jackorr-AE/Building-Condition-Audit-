@@ -8,9 +8,9 @@
   "external_areas": {
     "External": {
       "sheet1_columns": [
-        ["condition_external_walls", "External Walls"],
-        ["condition_downpipes", "Downpipes"],
-        ["condition_gutters", "Gutters"]
+        ["condition_external_walls", "External Walls", "type_of_external_walls"],
+        ["condition_downpipes", "Downpipes", "Material_Downpipes"],
+        ["condition_gutters", "Gutters", "material_gutter"]
       ],
       "sheet2_items": [
         "Roof",

@@ -2,7 +2,7 @@ Building Internal
 Location,Asset Sub-Type,Type/Material,Condition,Quantity,Comments
 Internal - Home Economics,Floor,Vinyl or lino,Poor,,Overall in poor condition there have been numerous instances of splitting of the vinyl due to concealed nails in the underlying floorboard
 Internal - Home Economics,Walls,Gyprock/ACM,Good,,"In overall good condition for its age, no significant defects observed and minimal wear and tear. Although insulation is inadequate and cannot retain heat enough for usage in cold weather."
-Internal - Home Economics,Ceiling,,Good,,"In overall good condition, minimal wear and tear observed"
+Internal - Home Economics,Ceiling,Plasterboard,Good,,"In overall good condition, minimal wear and tear observed"
 Internal - Home Economics,Lights,Halogen,Good,20,All 20 lights are working
 Internal - Home Economics,Joinery,Laminate / Laminate,Fair,,Overall joinery such as cupboards and benchtops all appear to be in fair condition with minor wear and tear observed
 
@@ -18,21 +18,17 @@ Internal - Home Economics,Switchboards,Good,Fully functional but locked and rest
 Building External
 Location,Asset Sub-Type,Type/Material,Condition,Quantity,Comments
 External,External Walls,Gyprock/ACM,Fair,,"Overall in fair condition, minor splitting of some panels in several locations predominantly around the base of the external panels"
-External,Downpipes,,Fair,4,Functional
-External,Gutters,,Fair,,Functional
-External,Roof,Structural,Fair,,Wear and tear observed along roof sheeting and external soffit edge framing minor corrosion has been observed throughout
-External,Ramp,Building Element,Fair,,External timber accessible ramp with steel hand rails
-External,Subfloor Framing,Structural,Fair,,Steelsubfloor framing and CHS stumps. CHS stumps in poor condition
-External,Windows,Building Element,Fair,,Aluminium framed windows. Issues with fitment during seasonal changes.
+External,Downpipes,PVC,Fair,4,Wear and tear observed although functional
+External,Gutters,Colorbond,Fair,,Wear and tear and minor corrosion observed. Functional.
+External,Roof,Colorbond,Fair,,Wear and tear observed along roof sheeting and external soffit edge framing minor corrosion has been observed throughout
+External,Ramp,Timber / Steel,Fair,,External timber accessible ramp with steel hand rails
+External,Subfloor Framing,Steel,Fair,,Steelsubfloor framing and CHS stumps. CHS stumps in poor condition
+External,Windows,Aluminium Framed,Fair,,Aluminium framed windows. Issues with fitment during seasonal changes.
 
 Fire
 Location,Asset Sub-Type,Condition,Comments,Last Test Result,Last Test Date
 Internal - Home Economics,Fire Blanket,Good,Serviced and Tested,Pass,2025-10-01
 Internal - Home Economics,Fire Extinguisher,Good,Serviced and Tested,Pass,2025-10-01
-
-Gas
-Location,Asset Sub-Type,Condition,Comments
-External,Gas,Good,"Last tested 14th of December 2021, used for heating building"
 
 HVAC
 Location,Asset Sub-Type,Type of Aircon Unit,Condition,Comments,Last Test Result

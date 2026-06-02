@@ -2,6 +2,7 @@ import csv
 import re
 
 from fulcrum_report.paths import ProjectPaths
+from fulcrum_report.sheet1_collective import sheet1_type_material
 from fulcrum_report.xlsx_io import FulcrumWorkbook
 
 
@@ -74,13 +75,22 @@ def main() -> int:
         row: dict[str, str] = {"Area": area}
 
         sheet1_pairs: list[tuple[str, str, str | None]] = []
-        for field, heading in spec.get("sheet1_columns", []):
+        for col in spec.get("sheet1_columns", []):
+            if not isinstance(col, (list, tuple)) or len(col) < 2:
+                continue
+            field = col[0]
+            heading = col[1]
+            explicit_type = list(col[2:]) if len(col) > 2 else None
             row[heading] = normalize_value(s1.get(field, ""), na_for_blank=False)
             cfield = comment_field_for_condition(field)
             comment_heading = f"{heading} Comments"
             if cfield:
                 row[comment_heading] = (s1.get(cfield) or "").strip()
-                sheet1_pairs.append((heading, comment_heading, cfield))
+            material = sheet1_type_material(s1, field, explicit_type)
+            material_heading = f"{heading} Material"
+            if material:
+                row[material_heading] = material
+            sheet1_pairs.append((heading, comment_heading, cfield, material_heading if material else None))
 
         sheet2_headings: list[tuple[str, str]] = []
         for desc in spec.get("sheet2_items", []):
@@ -95,8 +105,10 @@ def main() -> int:
             sheet2_headings.append((heading, comment_heading))
 
         fieldnames = ["Area"]
-        for heading, comment_heading, _ in sheet1_pairs:
+        for heading, comment_heading, _, material_heading in sheet1_pairs:
             fieldnames.append(heading)
+            if material_heading:
+                fieldnames.append(material_heading)
             if (row.get(comment_heading) or "").strip():
                 fieldnames.append(comment_heading)
         for heading, comment_heading in sheet2_headings:

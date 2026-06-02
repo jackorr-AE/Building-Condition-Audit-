@@ -1,6 +1,7 @@
 import csv
 
 from fulcrum_report.paths import ProjectPaths
+from fulcrum_report.sheet1_collective import sheet1_type_material
 from fulcrum_report.xlsx_io import FulcrumWorkbook
 
 
@@ -89,13 +90,17 @@ def sheet1_external_collective_rows(
         r = sheet1_by_location.get(area, {})
         if not r:
             continue
-        for field, heading in spec.get("sheet1_columns", []):
+        for col in spec.get("sheet1_columns", []):
+            if isinstance(col, (list, tuple)) and len(col) >= 2:
+                field = col[0]
+                heading = col[1]
+                explicit_type = list(col[2:]) if len(col) > 2 else None
+            else:
+                continue
             cond = (r.get(field) or "").strip()
             if not cond:
                 continue
-            type_material = ""
-            if field == "condition_external_walls":
-                type_material = (r.get("type_of_external_walls") or "").strip()
+            type_material = sheet1_type_material(r, field, explicit_type)
             comment_field = comment_field_for_condition(field)
             out.append(
                 {
@@ -144,7 +149,7 @@ def main() -> int:
     component_map = [
         ("Floor", "type_of_flooring", "condition_floor", "quantity_floor"),
         ("Walls", "type_of_walls", "condition_wall", ""),
-        ("Ceiling", "", "condition_ceiling", ""),
+        ("Ceiling", "type_of_ceiling", "condition_ceiling", ""),
         ("Lights", "type_of_light_fitting", "condition_lights", "quantity_lights"),
         ("Joinery", "type_of_joinery", "condition_joinery", ""),
     ]
