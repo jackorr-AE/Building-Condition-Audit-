@@ -20,7 +20,7 @@ STEPS = [
 
 REPORT_STEPS = [
     ("generate_appendix_b_pdf.py", "Appendix B HTML/PDF"),
-    ("generate_defect_data_sheet.py", "Appendix — Defects Register HTML"),
+    ("generate_defect_data_sheet.py", "Appendix — Defects Register HTML/PDF"),
     ("generate_site_photos_pdf.py", "Appendix — Site Photos HTML/PDF"),
 ]
 

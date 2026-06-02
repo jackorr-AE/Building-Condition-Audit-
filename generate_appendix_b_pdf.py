@@ -1,9 +1,9 @@
 import csv
 import html
-import subprocess
 from pathlib import Path
 
 from fulcrum_report.branding import appendix_page_header_html, logo_data_uri, logo_src_for_html
+from fulcrum_report.pdf_print import print_html_to_pdf
 from fulcrum_report.paths import ProjectPaths
 
 
@@ -274,26 +274,6 @@ def generate_html(
 """
 
 
-def print_pdf(html_path: Path, pdf_path: Path) -> None:
-    chrome = Path(r"C:\Program Files\Google\Chrome\Application\chrome.exe")
-    if not chrome.exists():
-        chrome = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
-    if not chrome.exists():
-        raise RuntimeError("No Chromium browser found for PDF printing.")
-
-    file_url = "file:///" + str(html_path).replace("\\", "/").replace(" ", "%20")
-    cmd = [
-        str(chrome),
-        "--headless=new",
-        "--disable-gpu",
-        "--no-pdf-header-footer",
-        "--print-to-pdf-landscape",
-        f"--print-to-pdf={pdf_path}",
-        file_url,
-    ]
-    subprocess.run(cmd, check=True)
-
-
 def main() -> int:
     paths = ProjectPaths()
     paths.ensure_unpack()
@@ -310,7 +290,7 @@ def main() -> int:
         embed_logos=True,
     )
     paths.appendix_b_html.write_text(html_doc, encoding="utf-8")
-    print_pdf(paths.appendix_b_html, paths.appendix_b_pdf)
+    print_html_to_pdf(paths.appendix_b_html, paths.appendix_b_pdf, landscape=True)
     print(f"Wrote {paths.appendix_b_html} and {paths.appendix_b_pdf}")
     return 0
 

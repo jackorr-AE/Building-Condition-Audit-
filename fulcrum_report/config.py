@@ -32,6 +32,7 @@ DEFAULT_CONFIG: dict[str, Any] = {
         "appendix_b_html": "Appendix - Asset Register.html",
         "appendix_b_pdf": "Appendix - Asset Register.pdf",
         "defect_list_html": "Appendix - Defects Register.html",
+        "defect_list_pdf": "Appendix - Defects Register.pdf",
         "site_photos_html": "Appendix - Site Photos.html",
         "site_photos_pdf": "Appendix - Site Photos.pdf",
     },

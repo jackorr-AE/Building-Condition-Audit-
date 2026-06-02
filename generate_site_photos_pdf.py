@@ -1,11 +1,11 @@
 import re
-import subprocess
 from datetime import datetime
 from pathlib import Path
 
 from PIL import Image, ImageOps
 
 from fulcrum_report.branding import appendix_page_header_html, file_data_uri, logo_data_uri
+from fulcrum_report.pdf_print import print_html_to_pdf
 from fulcrum_report.paths import ProjectPaths
 from fulcrum_report.xlsx_io import FulcrumWorkbook
 
@@ -299,25 +299,6 @@ def html_escape(s: str) -> str:
     )
 
 
-def print_pdf(html_path: Path, pdf_path: Path) -> None:
-    chrome = Path(r"C:\Program Files\Google\Chrome\Application\chrome.exe")
-    if not chrome.exists():
-        chrome = Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
-    if not chrome.exists():
-        raise RuntimeError("No Chromium browser found for PDF generation.")
-
-    file_url = "file:///" + str(html_path).replace("\\", "/").replace(" ", "%20")
-    cmd = [
-        str(chrome),
-        "--headless=new",
-        "--disable-gpu",
-        "--no-pdf-header-footer",
-        f"--print-to-pdf={pdf_path}",
-        file_url,
-    ]
-    subprocess.run(cmd, check=True)
-
-
 def main() -> int:
     paths = ProjectPaths()
     if not paths.photos_dir.exists():
@@ -346,7 +327,7 @@ def main() -> int:
     html_doc = generate_html(ordered, paths)
     paths.site_photos_html.parent.mkdir(parents=True, exist_ok=True)
     paths.site_photos_html.write_text(html_doc, encoding="utf-8")
-    print_pdf(paths.site_photos_html, paths.site_photos_pdf)
+    print_html_to_pdf(paths.site_photos_html, paths.site_photos_pdf, landscape=False)
     print(f"Wrote {paths.site_photos_html} and {paths.site_photos_pdf}")
     return 0
 

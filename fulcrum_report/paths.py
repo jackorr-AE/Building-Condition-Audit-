@@ -82,6 +82,7 @@ class ProjectPaths:
         self.appendix_b_html = self.reports_dir / o["appendix_b_html"]
         self.appendix_b_pdf = self.reports_dir / o["appendix_b_pdf"]
         self.defect_list_html = self.reports_dir / o["defect_list_html"]
+        self.defect_list_pdf = self.reports_dir / o["defect_list_pdf"]
         self.site_photos_html = self.reports_dir / o["site_photos_html"]
         self.site_photos_pdf = self.reports_dir / o["site_photos_pdf"]
 

@@ -6,6 +6,7 @@ from pathlib import Path
 from PIL import Image, ImageOps
 
 from fulcrum_report.branding import appendix_page_header_html, file_data_uri, logo_data_uri
+from fulcrum_report.pdf_print import print_html_to_pdf
 from fulcrum_report.paths import ProjectPaths
 
 REPORT_TITLE = "Appendix - Defects Register"
@@ -273,7 +274,8 @@ def main() -> int:
 
     paths.defect_list_html.parent.mkdir(parents=True, exist_ok=True)
     paths.defect_list_html.write_text(html_doc, encoding="utf-8")
-    print(f"Wrote {paths.defect_list_html}")
+    print_html_to_pdf(paths.defect_list_html, paths.defect_list_pdf, landscape=True)
+    print(f"Wrote {paths.defect_list_html} and {paths.defect_list_pdf}")
     return 0
 
 
