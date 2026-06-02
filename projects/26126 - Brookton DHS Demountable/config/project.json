@@ -1,0 +1,38 @@
+{
+  "project_name": "26126 - Brookton DHS Demountable",
+  "doors_aggregation": "average",
+  "dedupe_defects": true,
+  "internal_locations": [
+    "Internal - Home Economics"
+  ],
+  "external_areas": {
+    "External": {
+      "sheet1_columns": [
+        ["condition_external_walls", "External Walls"],
+        ["condition_downpipes", "Downpipes"],
+        ["condition_gutters", "Gutters"]
+      ],
+      "sheet2_items": [
+        "Roof",
+        "Ramp",
+        "Subfloor Framing",
+        "Windows"
+      ]
+    }
+  },
+  "paths": {
+    "fulcrum_xlsx": "data/brookton_dhs.xlsx",
+    "unpack_dir": "data/_xlsx_unpack",
+    "photos_dir": "assets/photos",
+    "defect_photos_dir": "output/defect_photos",
+    "site_photos_dir": "output/site_photos_compressed",
+    "tables_dir": "output/tables",
+    "reports_dir": "output/reports",
+    "logo_left": "assets/logos/Asset Engineers Logo.png",
+    "logo_right": null
+  },
+  "outputs": {
+    "table_4_1": "Table 4-1 Overall Condition of Internal Rooms and Components.csv",
+    "table_4_2": "Table 4-2 Overall Condition of External Rooms and Components.csv"
+  }
+}

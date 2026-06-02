@@ -1,0 +1,20 @@
+# Generated / large data (per project)
+projects/*/data/
+projects/*/assets/photos/
+projects/*/output/defect_photos/
+projects/*/output/site_photos_compressed/
+
+# PDF outputs (regenerated)
+*.pdf
+projects/*/output/**/*.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp

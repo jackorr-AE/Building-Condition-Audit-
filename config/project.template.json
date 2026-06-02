@@ -1,0 +1,20 @@
+# Copy this file to projects/<Your Project Name>/config/project.json and edit.
+
+{
+  "project_name": "Your Project Name",
+  "doors_aggregation": "average",
+  "dedupe_defects": true,
+  "internal_locations": [],
+  "external_areas": {},
+  "paths": {
+    "fulcrum_xlsx": "data/Fulcrum Export.xlsx",
+    "unpack_dir": "data/_xlsx_unpack",
+    "photos_dir": "assets/photos",
+    "defect_photos_dir": "output/defect_photos",
+    "site_photos_dir": "output/site_photos_compressed",
+    "tables_dir": "output/tables",
+    "reports_dir": "output/reports",
+    "logo_left": "assets/logos/engineer-logo.png",
+    "logo_right": "assets/logos/client-logo.png"
+  }
+}

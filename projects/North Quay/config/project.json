@@ -1,0 +1,71 @@
+{
+  "project_name": "North Quay",
+  "doors_aggregation": "average",
+  "dedupe_defects": true,
+  "internal_locations": [
+    "Office 4 (1st Floor)",
+    "Office 3 (1st Floor)",
+    "Office 2 (Ground Floor)",
+    "Main Area",
+    "Reception",
+    "Server Room",
+    "Main Area (1st Floor)",
+    "Staircase",
+    "Staff Room",
+    "Storage Room",
+    "Female Bathroom / Toilets",
+    "Office 1 (Ground Floor)",
+    "Male Bathroom / Toilets",
+    "Guard Room",
+    "Male Toilet (Rear)",
+    "Female Toilet (Rear)",
+    "Yard Shed"
+  ],
+  "external_areas": {
+    "External (Office and Carpark)": {
+      "output": "Table_4-2.csv",
+      "sheet1_columns": [
+        ["condition_external_walls", "External Walls"],
+        ["condition_pavingfootpaths", "Paving / Footpaths / Finishes"],
+        ["condition_gardens", "Gardens"],
+        ["condition_fencing", "Fencing"],
+        ["condition_downpipes", "Downpipes"],
+        ["condition_gutters", "Gutters"]
+      ],
+      "sheet2_items": [
+        "Smoking Area Structure (rear office)",
+        "Water Tanks",
+        "Windows",
+        "Staff Carpark",
+        "Kerbing",
+        "Linemarking",
+        "Entrance Cabin",
+        "Wheel stops"
+      ]
+    },
+    "External (Yard)": {
+      "output": "Table_4-3.csv",
+      "sheet1_columns": [],
+      "sheet2_items": [
+        "Asphalt",
+        "Linemarking",
+        "Bollards",
+        "Fencing and Gates",
+        "Drainage Grates",
+        "Lighting",
+        "Removal of Site Assets"
+      ]
+    }
+  },
+  "paths": {
+    "fulcrum_xlsx": "data/Fulcrum Export.xlsx",
+    "unpack_dir": "data/_xlsx_unpack",
+    "photos_dir": "assets/photos",
+    "defect_photos_dir": "output/defect_photos",
+    "site_photos_dir": "output/site_photos_compressed",
+    "tables_dir": "output/tables",
+    "reports_dir": "output/reports",
+    "logo_left": "assets/logos/Asset Engineers Logo.png",
+    "logo_right": "assets/logos/AWB Logo.png"
+  }
+}

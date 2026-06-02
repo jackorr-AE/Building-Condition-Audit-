@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Defects Register</title>
+  <style>
+    @page {
+      size: A4 landscape;
+      margin: 12mm 10mm 12mm 10mm;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      color: #111;
+    }
+    .page-header {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+      margin: 0 0 6px 0;
+    }
+    .page-header img {
+      height: 48px;
+      object-fit: contain;
+    }
+    .page-header .left {
+      justify-self: start;
+    }
+    .page-header .title {
+      justify-self: center;
+      font-weight: 700;
+      font-size: 15pt;
+      color: #005b2e;
+      transform: translateY(-2px);
+    }
+    .page-header .right {
+      justify-self: end;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 12px;
+    }
+    thead {
+      display: table-header-group;
+    }
+    th, td {
+      border: 1px solid #7c8f8d;
+      padding: 6px 8px;
+      vertical-align: top;
+      overflow-wrap: break-word;
+      word-break: normal;
+    }
+    tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    tbody tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .meta-header-cell {
+      border: none;
+      padding: 0 0 6px 0;
+    }
+    th {
+      background: #005b2e;
+      color: #fff;
+      text-align: left;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .photo-col {
+      padding: 0;
+    }
+    .photo-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      align-items: stretch;
+      min-height: 140px;
+      padding: 4px;
+      box-sizing: border-box;
+    }
+    .photo-wrap.na {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-style: italic;
+    }
+    .defect-photo {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border: 0;
+      display: block;
+    }
+    @media print {
+      .defect-photo { height: 135px; }
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <colgroup>
+      <col style="width:12%">
+      <col style="width:10%">
+      <col style="width:13%">
+      <col style="width:23%">
+      <col style="width:10%">
+      <col style="width:32%">
+    </colgroup>
+    <thead>
+      <tr>
+        <td colspan="6" class="meta-header-cell">
+          <div class="page-header">
+            <img class="left" src="Asset Engineers Logo.png" alt="Asset Engineers" />
+            <div class="title">Defects Register</div>
+            <img class="right" src="AWB Logo.png" alt="AWB" />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>Area</th>
+        <th>Location</th>
+        <th>Asset Type</th>
+        <th>Defect / Repair Description</th>
+        <th>Timeframe</th>
+        <th>Representative Photo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>External (Office and Carpark)</td><td>External</td><td>Building External, Fencing</td><td>Impact damaged fencing. Replace post and repair fencing (5 Lin.m).</td><td>1-2 years</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/15df83e2-ffad-41e2-be6a-ab555750349b_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /><img src="defect_photos/d7c77ce8-0b0c-448d-9a1f-247fae97a2ce_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>External (Office and Carpark)</td><td>External</td><td>Building External, Smoking Area Structure</td><td>Minor surface corrosion of flooring and seating structural elements in smoking structure. Treat corrosion.</td><td>12 months</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/6607f31c-ce88-4353-91cb-7febf9b3a7d0_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /><img src="defect_photos/72222f63-d17e-4e27-9a3c-a1b984fbb5a5_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>External (Office and Carpark)</td><td>External</td><td>Building External, Paving</td><td>Cracked and uneven pavers near rear toilets presents a trip hazard. Rectify.</td><td>12 months</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/02db7632-5744-4e20-b5cf-67beb6d211cc_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /><img src="defect_photos/f00d9d3c-1af8-404d-9202-097ef6880870_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>External (Yard)</td><td>External</td><td>Building External, Bollards</td><td>2 bollards have come loose, retighten. Remove deteriorated grout around base.</td><td>6 months</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/b4f6bea5-ae0a-47c4-bac4-9eda364ca5aa_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /><img src="defect_photos/3d7cbc29-591a-4ce9-ada5-22a32413902a_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>External (Yard)</td><td>External</td><td>Building External, Bollards</td><td>2 bollards have come loose, retighten. Remove deteriorated grout around base.</td><td>6 months</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/93c0124f-b20a-47a1-bd31-ee1fda44f0de_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /><img src="defect_photos/fabe51c2-1c54-4c51-a814-9cbbd98c9655_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>External (Yard)</td><td>External</td><td>Building External, Bollards</td><td>2 bollards have come loose, retighten. Remove deteriorated grout around base.</td><td>6 months</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/834cb4c1-ede6-479e-8392-f9cc6db26815_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /><img src="defect_photos/accb92d4-e0e3-407e-9595-24204d4e5b0c_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>External (Yard)</td><td>External</td><td>Building External, Bollards</td><td>2 bollards have come loose, retighten. Remove deteriorated grout around base.</td><td>6 months</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/7f87b53e-c34f-462b-9c32-63f884e7699a_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /><img src="defect_photos/359e6ded-2fbe-4772-ad01-4d6ad5729b15_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>External (Yard)</td><td>External</td><td>Building External, Bollards</td><td>2 bollards have come loose, retighten. Remove deteriorated grout around base.</td><td>6 months</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/dc7043af-bf10-47e4-8cde-00220710af99_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /><img src="defect_photos/b8ff1bcb-c06e-41a1-864e-83e343988e9b_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>External (Yard)</td><td>External</td><td>Building External, Bollards</td><td>2 bollards have come loose, retighten. Remove deteriorated grout around base.</td><td>6 months</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/9c84a65a-fee9-4def-9ad5-d00793d2deed_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /><img src="defect_photos/542a2906-1271-4b95-84b6-8682690b2635_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>External (Yard)</td><td>External</td><td>Building External, Bollards</td><td>2 bollards have come loose, retighten. Remove deteriorated grout around base.</td><td>6 months</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/e60477b8-ce23-4dfc-9090-4913af74db40_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /><img src="defect_photos/1efc1fbf-ba62-4b89-b7a5-4e90a06f6a4b_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>External (Yard)</td><td>External</td><td>Building External, Drainage Grates</td><td>Concrete handstand around drain grate has deteriorated. Need to replace.</td><td>1-2 years</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/d5875a71-5748-4d32-8955-c8f222d72021_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>External (Yard)</td><td>External</td><td>Building External, Asphalt</td><td>Asphalt between rail tracks is deteriorating. Localised repair required. Likely due to drainage pit structure shrinking below.</td><td>1-2 years</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/432496a7-203e-49f9-b4b8-bbb919931d68_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /><img src="defect_photos/ae4be999-ea35-4c41-933c-d599dcb91e65_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>Office 2 (Ground Floor)</td><td>Office Building</td><td>Electrical, Light Fittings</td><td>Replace 1 x light bulb.</td><td>6 months</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/3759c329-adad-4b84-ba3c-ff5ed90ba2ca_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>Main Area</td><td>Office Building</td><td>Building (Internal), Internal Wall</td><td>Wear and chipping of wall paint. Repaint walls.</td><td>12 months</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/ab4e4d20-f7b3-4f17-ad28-04df73b6abf8_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /><img src="defect_photos/3666550a-de39-456e-857e-aae2b21792ee_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>Guard Room</td><td>Office Building</td><td>Building (Internal), Internal Wall</td><td>Significant wear and chipping of wall pant, Sand and repaint.</td><td>12 months</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/1885cfa6-5424-491c-9d01-e59bdc5c970e_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /><img src="defect_photos/75aa2e57-4927-49f1-8f61-7856a78e2761_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>Yard Shed</td><td>Office Building</td><td>Electrical, Light Fittings</td><td>Replace 1 x light bulb.</td><td>6 months</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/45d6e1c3-5a14-4b0e-8ed4-1ad31b9ccf7f_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /><img src="defect_photos/afacdbe3-cb82-422d-965f-c0ac3b4f7740_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>Male Toilet (Rear)</td><td>Office Building</td><td>Building (Internal), Internal Wall</td><td>Sand and repaint walls in toilet room.</td><td>12 months</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/053334bd-8788-422a-a884-85d67cc6fc48_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /><img src="defect_photos/31a6698d-d857-42c8-8e33-900b45f3cbba_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr><tr><td>Female Toilet (Rear)</td><td>Office Building</td><td>Building (Internal), Internal Wall</td><td>Wall paint bubbling, sand back and repaint.</td><td>12 months</td><td class='photo-col'><div class="photo-wrap"><img src="defect_photos/0b032ad3-bc09-49ee-a137-321a6a24f86c_q18_oriented.jpg" alt="Defect photo" class="defect-photo" /></div></td></tr>
+    </tbody>
+  </table>
+</body>
+</html>

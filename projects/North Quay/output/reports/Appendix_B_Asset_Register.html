@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Appendix B Asset Register</title>
+  <style>
+    @page {
+      size: A4 landscape;
+      margin: 12mm 25.4mm 12mm 25.4mm;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      color: #111;
+    }
+    .section-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 11px;
+      margin: 0 0 8mm 0;
+      page-break-after: always;
+    }
+    .section-table:last-of-type {
+      page-break-after: auto;
+    }
+    thead {
+      display: table-header-group;
+    }
+    tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    th, td {
+      border: 1px solid #7c8f8d;
+      padding: 5px 6px;
+      vertical-align: top;
+      overflow-wrap: break-word;
+      word-break: normal;
+    }
+    .cond-center {
+      text-align: center;
+      font-weight: 400;
+    }
+    .cond-excellent {
+      background: #17a2d8;
+    }
+    .cond-good {
+      background: #8dc84a;
+    }
+    .cond-fair {
+      background: #f3ec00;
+    }
+    .cond-poor {
+      background: #f1b400;
+    }
+    .cond-very-poor {
+      background: #ef1111;
+      color: #000;
+    }
+    th {
+      background: #005b2e;
+      color: #fff;
+      text-align: center;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .meta-header-cell {
+      border: none;
+      padding: 0 0 6px 0;
+    }
+    .page-header {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+      margin: 0 0 4px 0;
+    }
+    .page-header img {
+      height: 42px;
+      object-fit: contain;
+    }
+    .page-header .left {
+      justify-self: start;
+    }
+    .page-header .right {
+      justify-self: end;
+    }
+    .page-header .title {
+      justify-self: center;
+      font-weight: 700;
+      font-size: 14pt;
+      color: #005b2e;
+      transform: translateY(-1px);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  
+<table class="section-table">
+  <colgroup><col style="width:15.000%"><col style="width:15.000%"><col style="width:15.000%"><col style="width:25.000%"><col style="width:15.000%"><col style="width:15.000%"></colgroup>
+  <thead>
+    <tr>
+      <td colspan="6" class="meta-header-cell">
+        <div class="page-header">
+          <img class="left" src="Asset Engineers Logo.png" alt="Asset Engineers" />
+          <div class="title">Building Internal</div>
+          <img class="right" src="AWB Logo.png" alt="AWB" />
+        </div>
+      </td>
+    </tr>
+    <tr><th>Location</th><th>Asset Sub-Type</th><th>Type/Material</th><th>Condition</th><th>Quantity</th><th>Comments</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Office 4 (1st Floor)</td><td>Floor</td><td>Carpets</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Office 4 (1st Floor)</td><td>Walls</td><td>Gyprock (Internal), Concrete (External)</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Office 4 (1st Floor)</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Office 4 (1st Floor)</td><td>Lights</td><td>LED</td><td class="cond-center cond-good">Good</td><td>2</td><td>Working</td></tr><tr><td>Office 3 (1st Floor)</td><td>Floor</td><td>Carpets</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Office 3 (1st Floor)</td><td>Walls</td><td>Gyprock (Internal), Concrete (External)</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Office 3 (1st Floor)</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Office 3 (1st Floor)</td><td>Lights</td><td>LED</td><td class="cond-center cond-good">Good</td><td>2</td><td>Working</td></tr><tr><td>Office 2 (Ground Floor)</td><td>Floor</td><td>Tile</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Office 2 (Ground Floor)</td><td>Walls</td><td>Gyprock (Internal), Concrete (External)</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Office 2 (Ground Floor)</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Office 2 (Ground Floor)</td><td>Lights</td><td>LED</td><td class="cond-center cond-good">Good</td><td>2</td><td>1 light not working</td></tr><tr><td>Main Area</td><td>Floor</td><td>Tile</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Main Area</td><td>Walls</td><td>Gyprock (Internal), Concrete (External)</td><td class="cond-center cond-fair">Fair</td><td></td><td></td></tr><tr><td>Main Area</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Main Area</td><td>Lights</td><td>LED</td><td class="cond-center cond-good">Good</td><td>4</td><td>Working</td></tr><tr><td>Reception</td><td>Floor</td><td>Tile</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Reception</td><td>Walls</td><td>Gyprock (Internal), Concrete (External)</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Reception</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Reception</td><td>Lights</td><td>LED</td><td class="cond-center cond-good">Good</td><td>2</td><td>Working</td></tr><tr><td>Reception</td><td>Joinery</td><td>Laminate / Laminate</td><td class="cond-center cond-good">Good</td><td></td><td>Wooden and Veneer benchtop for the reception</td></tr><tr><td>Server Room</td><td>Floor</td><td>Tile</td><td class="cond-center cond-fair">Fair</td><td></td><td></td></tr><tr><td>Server Room</td><td>Walls</td><td>Gyprock (Internal), Concrete (External)</td><td class="cond-center cond-fair">Fair</td><td></td><td></td></tr><tr><td>Server Room</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Server Room</td><td>Lights</td><td>LED</td><td class="cond-center cond-good">Good</td><td>1</td><td>Working</td></tr><tr><td>Main Area (1st Floor)</td><td>Floor</td><td>Carpets</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Main Area (1st Floor)</td><td>Walls</td><td>Gyprock (Internal), Concrete (External)</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Main Area (1st Floor)</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Main Area (1st Floor)</td><td>Lights</td><td>LED</td><td class="cond-center cond-good">Good</td><td>4</td><td>Working</td></tr><tr><td>Staircase</td><td>Floor</td><td>Carpets</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Staircase</td><td>Walls</td><td>Gyprock (Internal), Concrete (External)</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Staircase</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Staircase</td><td>Lights</td><td>LED</td><td class="cond-center cond-good">Good</td><td>1</td><td>Working</td></tr><tr><td>Staff Room</td><td>Floor</td><td>Tile</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Staff Room</td><td>Walls</td><td>Gyprock (Internal), Concrete (External)</td><td class="cond-center cond-fair">Fair</td><td></td><td></td></tr><tr><td>Staff Room</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Staff Room</td><td>Lights</td><td>LED</td><td class="cond-center cond-good">Good</td><td>2</td><td>Working</td></tr><tr><td>Staff Room</td><td>Joinery</td><td>Laminate / Marble</td><td class="cond-center cond-good">Good</td><td></td><td>Marble top with Wooden cabinets</td></tr><tr><td>Storage Room</td><td>Floor</td><td>Tile</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Storage Room</td><td>Walls</td><td>Gyprock (Internal), Concrete (External)</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Storage Room</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Storage Room</td><td>Lights</td><td>LED</td><td class="cond-center cond-good">Good</td><td>1</td><td>Working</td></tr><tr><td>Storage Room</td><td>Joinery</td><td>Laminate</td><td class="cond-center cond-good">Good</td><td></td><td>Wooden Laminated Storage Cabinets</td></tr><tr><td>Female Bathroom / Toilets</td><td>Floor</td><td>Tile</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Female Bathroom / Toilets</td><td>Walls</td><td>Concrete</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Female Bathroom / Toilets</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Female Bathroom / Toilets</td><td>Lights</td><td>LED</td><td class="cond-center cond-good">Good</td><td>1</td><td>Working</td></tr><tr><td>Female Bathroom / Toilets</td><td>Joinery</td><td>Laminate</td><td class="cond-center cond-good">Good</td><td></td><td>Steel Framed Wooden bench</td></tr><tr><td>Office 1 (Ground Floor)</td><td>Floor</td><td>Tile</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Office 1 (Ground Floor)</td><td>Walls</td><td>Gyprock (Internal), Concrete (External)</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Office 1 (Ground Floor)</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Office 1 (Ground Floor)</td><td>Lights</td><td>LED</td><td class="cond-center cond-good">Good</td><td>2</td><td>Working</td></tr><tr><td>Male Bathroom / Toilets</td><td>Floor</td><td>Tile</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Male Bathroom / Toilets</td><td>Walls</td><td>Concrete</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Male Bathroom / Toilets</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Male Bathroom / Toilets</td><td>Lights</td><td>LED</td><td class="cond-center cond-good">Good</td><td>1</td><td>Working</td></tr><tr><td>Guard Room</td><td>Floor</td><td>Tile</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Guard Room</td><td>Walls</td><td>Concrete</td><td class="cond-center cond-fair">Fair</td><td></td><td>Surface wear and tear and paint chipping observed</td></tr><tr><td>Guard Room</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-fair">Fair</td><td></td><td></td></tr><tr><td>Guard Room</td><td>Lights</td><td>LED</td><td class="cond-center cond-good">Good</td><td>1</td><td>Working</td></tr><tr><td>Yard Shed</td><td>Floor</td><td>Concrete</td><td class="cond-center cond-fair">Fair</td><td></td><td></td></tr><tr><td>Yard Shed</td><td>Walls</td><td>Steel</td><td class="cond-center cond-fair">Fair</td><td></td><td>General wear and tear observed</td></tr><tr><td>Yard Shed</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-fair">Fair</td><td></td><td>General wear and tear observed</td></tr><tr><td>Yard Shed</td><td>Lights</td><td>Halogen</td><td class="cond-center cond-fair">Fair</td><td>12</td><td>11 working, 1 not working</td></tr><tr><td>Male Toilet (Rear)</td><td>Floor</td><td>Tile</td><td class="cond-center cond-fair">Fair</td><td></td><td></td></tr><tr><td>Male Toilet (Rear)</td><td>Walls</td><td>Concrete</td><td class="cond-center cond-fair">Fair</td><td></td><td>Paint peeling off the walls in some areas</td></tr><tr><td>Male Toilet (Rear)</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-fair">Fair</td><td></td><td></td></tr><tr><td>Male Toilet (Rear)</td><td>Lights</td><td>LED</td><td class="cond-center cond-good">Good</td><td>2</td><td>Working</td></tr><tr><td>Female Toilet (Rear)</td><td>Floor</td><td>Tile</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Female Toilet (Rear)</td><td>Walls</td><td>Concrete</td><td class="cond-center cond-fair">Fair</td><td></td><td></td></tr><tr><td>Female Toilet (Rear)</td><td>Ceiling</td><td>Mineral Fibre</td><td class="cond-center cond-good">Good</td><td></td><td></td></tr><tr><td>Female Toilet (Rear)</td><td>Lights</td><td>LED</td><td class="cond-center cond-good">Good</td><td>1</td><td>Working</td></tr>
+  </tbody>
+</table>
+
+<table class="section-table">
+  <colgroup><col style="width:11.000%"><col style="width:11.000%"><col style="width:11.000%"><col style="width:14.000%"><col style="width:11.000%"><col style="width:11.000%"><col style="width:10.000%"><col style="width:10.000%"><col style="width:11.000%"></colgroup>
+  <thead>
+    <tr>
+      <td colspan="9" class="meta-header-cell">
+        <div class="page-header">
+          <img class="left" src="Asset Engineers Logo.png" alt="Asset Engineers" />
+          <div class="title">Doors</div>
+          <img class="right" src="AWB Logo.png" alt="AWB" />
+        </div>
+      </td>
+    </tr>
+    <tr><th>Location</th><th>Asset Sub-Type</th><th>Door Type</th><th>Door Frame Type</th><th>Condition</th><th>Door Closer</th><th>Door Jams Fitted</th><th>Door is Compliant</th><th>Lockable</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Bathroom / Toilets</td><td>Doors</td><td>Timber Hinged Internal</td><td>Timber</td><td class="cond-center cond-good">Good</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr><tr><td>Bathroom / Toilets</td><td>Doors</td><td>Timber Hinged Internal</td><td>Steel</td><td class="cond-center cond-good">Good</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr><tr><td>Female Toilet (Rear)</td><td>Doors</td><td>Timber Hinged External</td><td>Timber</td><td class="cond-center cond-good">Good</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr><tr><td>Guard Room</td><td>Doors</td><td>Glass Hinged</td><td>Timber</td><td class="cond-center cond-good">Good</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr><tr><td>Male Toilet (Rear)</td><td>Doors</td><td>Timber Hinged Internal</td><td>Timber</td><td class="cond-center cond-fair">Fair</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr><tr><td>Male Toilet (Rear)</td><td>Doors</td><td>Timber Hinged External</td><td>Timber</td><td class="cond-center cond-good">Good</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr><tr><td>Office 1 (Ground Floor)</td><td>Doors</td><td>Timber Hinged Internal</td><td>Timber</td><td class="cond-center cond-good">Good</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr><tr><td>Office 2 (Ground Floor)</td><td>Doors</td><td>Timber Hinged Internal</td><td>Timber</td><td class="cond-center cond-good">Good</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr><tr><td>Office 3 (1st Floor)</td><td>Doors</td><td>Timber Hinged Internal</td><td>Timber</td><td class="cond-center cond-good">Good</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr><tr><td>Office 4 (1st Floor)</td><td>Doors</td><td>Timber Hinged Internal</td><td>Timber</td><td class="cond-center cond-good">Good</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr><tr><td>Reception</td><td>Doors</td><td>Aluminium Hinged</td><td>Steel</td><td class="cond-center cond-good">Good</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr><tr><td>Server Room</td><td>Doors</td><td>Timber Hinged Internal</td><td>Timber</td><td class="cond-center cond-good">Good</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr><tr><td>Staff Room</td><td>Doors</td><td>Timber Hinged Internal</td><td>Timber</td><td class="cond-center cond-good">Good</td><td>yes</td><td>yes</td><td>yes</td><td>no</td></tr><tr><td>Staff Room</td><td>Doors</td><td>Aluminium Hinged</td><td>Steel</td><td class="cond-center cond-good">Good</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr><tr><td>Storage Room</td><td>Doors</td><td>Timber Hinged Internal</td><td>Timber</td><td class="cond-center cond-good">Good</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr>
+  </tbody>
+</table>
+
+<table class="section-table">
+  <colgroup><col style="width:15.000%"><col style="width:15.000%"><col style="width:15.000%"><col style="width:25.000%"><col style="width:15.000%"><col style="width:15.000%"></colgroup>
+  <thead>
+    <tr>
+      <td colspan="6" class="meta-header-cell">
+        <div class="page-header">
+          <img class="left" src="Asset Engineers Logo.png" alt="Asset Engineers" />
+          <div class="title">Electrical</div>
+          <img class="right" src="AWB Logo.png" alt="AWB" />
+        </div>
+      </td>
+    </tr>
+    <tr><th>Location</th><th>Asset Sub-Type</th><th>Comment</th><th>Condition</th><th>Last Test Result</th><th>Last Test Date</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>External</td><td>Distribution Board</td><td>Operational</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td></tr><tr><td>Server Room</td><td>Miscellaneous Electrical Boxes</td><td>Operational</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td></tr><tr><td>External</td><td>Switchboards</td><td>Decommissioned</td><td class="cond-center cond-very-poor">Very Poor</td><td>No Record</td><td>No Record</td></tr><tr><td>External</td><td>Switchboards</td><td>Decommissioned</td><td class="cond-center cond-very-poor">Very Poor</td><td>No Record</td><td>No Record</td></tr><tr><td>External</td><td>Switchboards</td><td>Decommissioned</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td></tr><tr><td>Main Area</td><td>Switchboards</td><td>Operational</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td></tr>
+  </tbody>
+</table>
+
+<table class="section-table">
+  <colgroup><col style="width:25.000%"><col style="width:25.000%"><col style="width:25.000%"><col style="width:25.000%"></colgroup>
+  <thead>
+    <tr>
+      <td colspan="4" class="meta-header-cell">
+        <div class="page-header">
+          <img class="left" src="Asset Engineers Logo.png" alt="Asset Engineers" />
+          <div class="title">Building External</div>
+          <img class="right" src="AWB Logo.png" alt="AWB" />
+        </div>
+      </td>
+    </tr>
+    <tr><th>Location</th><th>Asset Sub-Type</th><th>Comment</th><th>Condition</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>External (Office and Carpark)</td><td>Smoking Area Structure (rear office)</td><td>Minor corrosion of flooring surface and bench connections.</td><td class="cond-center cond-fair">Fair</td></tr><tr><td>External (Office and Carpark)</td><td>Water Tanks</td><td></td><td class="cond-center cond-good">Good</td></tr><tr><td>External (Office and Carpark)</td><td>Windows</td><td></td><td class="cond-center cond-good">Good</td></tr><tr><td>External (Office and Carpark)</td><td>Staff Carpark</td><td>Asphalt finish in generally good condition.</td><td class="cond-center cond-good">Good</td></tr><tr><td>External (Office and Carpark)</td><td>Kerbing</td><td></td><td class="cond-center cond-good">Good</td></tr><tr><td>External (Office and Carpark)</td><td>Linemarking</td><td>Generally faded in most areas. To be renewed in April 2026.</td><td class="cond-center cond-fair">Fair</td></tr><tr><td>External (Office and Carpark)</td><td>Entrance Cabin</td><td></td><td class="cond-center cond-good">Good</td></tr><tr><td>External (Office and Carpark)</td><td>Wheel stops</td><td></td><td class="cond-center cond-good">Good</td></tr><tr><td>External (Yard)</td><td>Asphalt</td><td>Overall in good condition, areas of surface crushing due to long term weights of shipping containers</td><td class="cond-center cond-good">Good</td></tr><tr><td>External (Yard)</td><td>Linemarking</td><td>Generally faded in most areas. To be renewed in April 2026.</td><td class="cond-center cond-poor">Poor</td></tr><tr><td>External (Yard)</td><td>Bollards</td><td>Generally in fair condition, in many instances grout around the bases have cracked and are deteriorating. Many of the bollard rag bolts need to be tightened.</td><td class="cond-center cond-fair">Fair</td></tr><tr><td>External (Yard)</td><td>Fencing and Gates</td><td>Generally in good condition. No significant defects observed.</td><td class="cond-center cond-good">Good</td></tr><tr><td>External (Yard)</td><td>Drainage Grates</td><td>Generally in good condition.</td><td class="cond-center cond-good">Good</td></tr><tr><td>External (Yard)</td><td>Lighting</td><td>All 19 working, globes recently replaced October 2025. 2 light poles are to be transferred to another company.</td><td class="cond-center cond-good">Good</td></tr><tr><td>External (Yard)</td><td>Removal of Site Assets</td><td>Includes fencing, lighting, fire hydrants within zoning taken over by another company/authority</td><td class="cond-center">N/A</td></tr>
+  </tbody>
+</table>
+
+<table class="section-table">
+  <colgroup><col style="width:20.000%"><col style="width:20.000%"><col style="width:20.000%"><col style="width:20.000%"><col style="width:20.000%"></colgroup>
+  <thead>
+    <tr>
+      <td colspan="5" class="meta-header-cell">
+        <div class="page-header">
+          <img class="left" src="Asset Engineers Logo.png" alt="Asset Engineers" />
+          <div class="title">Fire</div>
+          <img class="right" src="AWB Logo.png" alt="AWB" />
+        </div>
+      </td>
+    </tr>
+    <tr><th>Location</th><th>Asset Sub-Type</th><th>Condition</th><th>Last Test Result</th><th>Last Test Date</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Main Area (1st Floor)</td><td>Fire Extinguisher</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>Main Area</td><td>Fire Extinguisher</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>Reception</td><td>Fire Extinguisher</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>Server Room</td><td>Fire Extinguisher</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>Staff Room</td><td>Fire Extinguisher</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>External</td><td>Fire Hydrant/Hose Reel</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>External</td><td>Fire Hydrant/Hose Reel</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>External</td><td>Fire Hydrant/Hose Reel</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>External</td><td>Fire Hydrant/Hose Reel</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>External</td><td>Fire Hydrant/Hose Reel</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>External</td><td>Fire Hydrant/Hose Reel</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>External</td><td>Fire Hydrant/Hose Reel</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>External</td><td>Fire Hydrant/Hose Reel</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>External</td><td>Fire Hydrant/Hose Reel</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>External</td><td>Fire Hydrant/Hose Reel</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>External</td><td>Fire Hydrant/Hose Reel</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>External</td><td>Fire Hydrant/Hose Reel</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>External</td><td>Fire Hydrant/Hose Reel</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>External</td><td>Fire Hydrant/Hose Reel</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>External</td><td>Fire Hydrant/Hose Reel</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr><tr><td>External</td><td>Fire Hydrant/Hose Reel</td><td class="cond-center cond-good">Good</td><td>Pass</td><td>Nov-25</td></tr>
+  </tbody>
+</table>
+
+<table class="section-table">
+  <colgroup><col style="width:20.000%"><col style="width:20.000%"><col style="width:20.000%"><col style="width:20.000%"><col style="width:20.000%"></colgroup>
+  <thead>
+    <tr>
+      <td colspan="5" class="meta-header-cell">
+        <div class="page-header">
+          <img class="left" src="Asset Engineers Logo.png" alt="Asset Engineers" />
+          <div class="title">Gates / Fencing</div>
+          <img class="right" src="AWB Logo.png" alt="AWB" />
+        </div>
+      </td>
+    </tr>
+    <tr><th>Location</th><th>Asset Sub-Type</th><th>Gate/Fencing Type</th><th>Condition</th><th>Comments</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>External</td><td>Gates</td><td>Steel Mesh Fencing</td><td class="cond-center cond-good">Good</td><td>Working</td></tr><tr><td>External</td><td>Gates</td><td>Rotating Steel Gate (Single Person)</td><td class="cond-center cond-good">Good</td><td>Working</td></tr>
+  </tbody>
+</table>
+
+<table class="section-table">
+  <colgroup><col style="width:15.000%"><col style="width:15.000%"><col style="width:15.000%"><col style="width:25.000%"><col style="width:15.000%"><col style="width:15.000%"></colgroup>
+  <thead>
+    <tr>
+      <td colspan="6" class="meta-header-cell">
+        <div class="page-header">
+          <img class="left" src="Asset Engineers Logo.png" alt="Asset Engineers" />
+          <div class="title">HVAC</div>
+          <img class="right" src="AWB Logo.png" alt="AWB" />
+        </div>
+      </td>
+    </tr>
+    <tr><th>Location</th><th>Asset Sub-Type</th><th>Condition</th><th>Last Test Result</th><th>Last Test Date</th><th>Comment</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Bathroom / Toilets</td><td>Ceiling Exhaust Fans</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td><td>Working</td></tr><tr><td>Bathroom / Toilets</td><td>Ceiling Exhaust Fans</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td><td>Working</td></tr><tr><td>Female Toilet (Rear)</td><td>Ceiling Exhaust Fans</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td><td>Working</td></tr><tr><td>Male Toilet (Rear)</td><td>Ceiling Exhaust Fans</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td><td>Working</td></tr><tr><td>Guard Room</td><td>Reverse Cycle / Split System</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td><td>Working</td></tr><tr><td>Main Area (1st Floor)</td><td>Reverse Cycle / Split System</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td><td>Working</td></tr><tr><td>Main Area</td><td>Reverse Cycle / Split System</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td><td>Working</td></tr><tr><td>Office 1 (Ground Floor)</td><td>Reverse Cycle / Split System</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td><td>Working</td></tr><tr><td>Office 3 (1st Floor)</td><td>Reverse Cycle / Split System</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td><td>Working</td></tr><tr><td>Office 4 (1st Floor)</td><td>Reverse Cycle / Split System</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td><td>Working</td></tr><tr><td>Server Room</td><td>Reverse Cycle / Split System</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td><td>Working</td></tr><tr><td>Staff Room</td><td>Reverse Cycle / Split System</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td><td>Working</td></tr>
+  </tbody>
+</table>
+
+<table class="section-table">
+  <colgroup><col style="width:15.000%"><col style="width:15.000%"><col style="width:15.000%"><col style="width:25.000%"><col style="width:15.000%"><col style="width:15.000%"></colgroup>
+  <thead>
+    <tr>
+      <td colspan="6" class="meta-header-cell">
+        <div class="page-header">
+          <img class="left" src="Asset Engineers Logo.png" alt="Asset Engineers" />
+          <div class="title">Plumbing</div>
+          <img class="right" src="AWB Logo.png" alt="AWB" />
+        </div>
+      </td>
+    </tr>
+    <tr><th>Location</th><th>Asset Sub-Type</th><th>Condition</th><th>Last Test Result</th><th>Last Test Date</th><th>Comment</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>External (Office)</td><td>Hot Water Unit</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td><td>Working</td></tr><tr><td>External (Office)</td><td>Oily Water Seperator</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td><td>Working</td></tr>
+  </tbody>
+</table>
+
+<table class="section-table">
+  <colgroup><col style="width:15.000%"><col style="width:15.000%"><col style="width:15.000%"><col style="width:25.000%"><col style="width:15.000%"><col style="width:15.000%"></colgroup>
+  <thead>
+    <tr>
+      <td colspan="6" class="meta-header-cell">
+        <div class="page-header">
+          <img class="left" src="Asset Engineers Logo.png" alt="Asset Engineers" />
+          <div class="title">Security</div>
+          <img class="right" src="AWB Logo.png" alt="AWB" />
+        </div>
+      </td>
+    </tr>
+    <tr><th>Location</th><th>Asset Sub-Type</th><th>Condition</th><th>Last Test Result</th><th>Last Test Date</th><th>Comment</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>External (Office)</td><td>Security Alarm System</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td><td>Working</td></tr>
+  </tbody>
+</table>
+
+<table class="section-table">
+  <colgroup><col style="width:15.000%"><col style="width:15.000%"><col style="width:15.000%"><col style="width:25.000%"><col style="width:15.000%"><col style="width:15.000%"></colgroup>
+  <thead>
+    <tr>
+      <td colspan="6" class="meta-header-cell">
+        <div class="page-header">
+          <img class="left" src="Asset Engineers Logo.png" alt="Asset Engineers" />
+          <div class="title">Defibrillator</div>
+          <img class="right" src="AWB Logo.png" alt="AWB" />
+        </div>
+      </td>
+    </tr>
+    <tr><th>Location</th><th>Asset Sub-Type</th><th>Condition</th><th>Last Test Result</th><th>Last Test Date</th><th>Comment</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Main Area</td><td>Defibrillator</td><td class="cond-center cond-good">Good</td><td>No Record</td><td>No Record</td><td>Unknown if working</td></tr>
+  </tbody>
+</table>
+
+</body>
+</html>
