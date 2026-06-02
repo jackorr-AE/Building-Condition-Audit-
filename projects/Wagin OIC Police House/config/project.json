@@ -1,0 +1,29 @@
+{
+  "project_name": "Wagin OIC Police House",
+  "doors_aggregation": "average",
+  "dedupe_defects": true,
+  "internal_locations": [],
+  "external_areas": {},
+  "paths": {
+    "fulcrum_xlsx": "data/Fulcrum Export.xlsx",
+    "unpack_dir": "data/_xlsx_unpack",
+    "photos_dir": "assets/photos",
+    "defect_photos_dir": "output/defect_photos",
+    "site_photos_dir": "output/site_photos_compressed",
+    "tables_dir": "output/tables",
+    "reports_dir": "output/reports",
+    "logo_left": "assets/logos/Asset Engineers Logo.png",
+    "logo_right": null
+  },
+  "outputs": {
+    "table_4_1": "Table 4-1 Overall Condition of Internal Rooms and Components.csv",
+    "table_4_2": "Table 4-2 Overall Condition of External Rooms and Components.csv",
+    "appendix_b_csv": "Appendix - Asset Register.csv",
+    "appendix_b_html": "Appendix - Asset Register.html",
+    "appendix_b_pdf": "Appendix - Asset Register.pdf",
+    "defect_list_html": "Appendix - Defects Register.html",
+    "defect_list_pdf": "Appendix - Defects Register.pdf",
+    "site_photos_html": "Appendix - Site Photos.html",
+    "site_photos_pdf": "Appendix - Site Photos.pdf"
+  }
+}
