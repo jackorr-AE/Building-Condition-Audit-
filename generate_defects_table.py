@@ -1,7 +1,7 @@
 import csv
 
 from fulcrum_report.paths import ProjectPaths
-from fulcrum_report.xlsx_io import FulcrumWorkbook, defect_repair_text
+from fulcrum_report.xlsx_io import FulcrumWorkbook, defect_description_and_repair
 
 
 def photo_reference(row: dict[str, str]) -> str:
@@ -20,7 +20,8 @@ def dedupe_defects(rows: list[dict[str, str]]) -> list[dict[str, str]]:
             row.get("Area", "").strip(),
             row.get("Location", "").strip(),
             row.get("Asset Type", "").strip(),
-            row.get("Defect / Repair Description", "").strip(),
+            row.get("Defect Description", "").strip(),
+            row.get("Repair Description", "").strip(),
         )
         if key not in seen:
             seen[key] = dict(row)
@@ -55,12 +56,14 @@ def main() -> int:
     out_rows: list[dict[str, str]] = []
     for d in wb.sheet4:
         parent_id = (d.get("_parent_id") or "").strip()
+        defect, repair = defect_description_and_repair(d)
         out_rows.append(
             {
                 "Area": area_by_parent.get(parent_id, ""),
                 "Location": (d.get("location_defect") or "").strip(),
                 "Asset Type": (d.get("asset_type_defects") or "").strip(),
-                "Defect / Repair Description": defect_repair_text(d),
+                "Defect Description": defect,
+                "Repair Description": repair,
                 "Photo Reference": photo_reference(d),
             }
         )
@@ -71,7 +74,14 @@ def main() -> int:
         if before != len(out_rows):
             print(f"Deduplicated defects: {before} -> {len(out_rows)} rows")
 
-    fieldnames = ["Area", "Location", "Asset Type", "Defect / Repair Description", "Photo Reference"]
+    fieldnames = [
+        "Area",
+        "Location",
+        "Asset Type",
+        "Defect Description",
+        "Repair Description",
+        "Photo Reference",
+    ]
     paths.table_defects.parent.mkdir(parents=True, exist_ok=True)
     with paths.table_defects.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fieldnames)

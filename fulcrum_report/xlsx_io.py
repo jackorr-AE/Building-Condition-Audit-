@@ -84,13 +84,19 @@ def _sheet_kind(headers: set[str]) -> str | None:
     return None
 
 
-def defect_repair_text(row: dict[str, str]) -> str:
-    """Single defect_repair_description field, or defect + repair split fields."""
-    combined = (row.get("defect_repair_description") or "").strip()
-    if combined:
-        return combined
+def defect_description_and_repair(row: dict[str, str]) -> tuple[str, str]:
+    """Return (defect description, repair description) from Fulcrum defect row."""
     defect = (row.get("defect_description") or "").strip()
     repair = (row.get("repair_description") or "").strip()
+    if defect or repair:
+        return defect, repair
+    combined = (row.get("defect_repair_description") or "").strip()
+    return combined, ""
+
+
+def defect_repair_text(row: dict[str, str]) -> str:
+    """Combined text for legacy callers."""
+    defect, repair = defect_description_and_repair(row)
     if defect and repair:
         return f"{defect} {repair}"
     return defect or repair

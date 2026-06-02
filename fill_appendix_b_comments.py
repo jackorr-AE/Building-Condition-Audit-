@@ -76,6 +76,8 @@ def main() -> int:
             assets_by_section["plumbing"].append(record)
         elif at.startswith("Security,"):
             assets_by_section["security"].append(record)
+        elif at == "Gas":
+            assets_by_section["gas"].append(record)
         elif at == "Defibrillator":
             assets_by_section["defibrillator"].append(record)
 
@@ -125,7 +127,16 @@ def main() -> int:
             comment = internal_comment.get((n(loc), n(subtype)), "")
         elif sec == "building external":
             comment = external_comment.get((n(loc), n(subtype)), "")
-        elif sec in ("electrical", "doors", "gates / fencing", "hvac", "plumbing", "security", "defibrillator"):
+        elif sec in (
+            "electrical",
+            "doors",
+            "gates / fencing",
+            "gas",
+            "hvac",
+            "plumbing",
+            "security",
+            "defibrillator",
+        ):
             key = "gates" if sec == "gates / fencing" else sec
             candidates = []
             for a in assets_by_section.get(key, []):

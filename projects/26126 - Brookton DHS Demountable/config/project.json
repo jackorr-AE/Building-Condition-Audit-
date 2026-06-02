@@ -33,6 +33,12 @@
   },
   "outputs": {
     "table_4_1": "Table 4-1 Overall Condition of Internal Rooms and Components.csv",
-    "table_4_2": "Table 4-2 Overall Condition of External Rooms and Components.csv"
+    "table_4_2": "Table 4-2 Overall Condition of External Rooms and Components.csv",
+    "appendix_b_csv": "Appendix - Asset Register.csv",
+    "appendix_b_html": "Appendix - Asset Register.html",
+    "appendix_b_pdf": "Appendix - Asset Register.pdf",
+    "defect_list_html": "Appendix - Defects Register.html",
+    "site_photos_html": "Appendix - Site Photos.html",
+    "site_photos_pdf": "Appendix - Site Photos.pdf"
   }
 }

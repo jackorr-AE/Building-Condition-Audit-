@@ -28,12 +28,12 @@ DEFAULT_CONFIG: dict[str, Any] = {
         "table_4_3": "Table_4-3.csv",
         "table_defects": "Table_Defects.csv",
         "table_defects_refined": "Table_Defects_refined.csv",
-        "appendix_b_csv": "Appendix_B_Asset_Register.csv",
-        "appendix_b_html": "Appendix_B_Asset_Register.html",
-        "appendix_b_pdf": "Appendix_B_Asset_Register.pdf",
-        "defect_list_html": "Table_4-4_Defect_List.html",
-        "site_photos_html": "Site_Photos.html",
-        "site_photos_pdf": "Site_Photos.pdf",
+        "appendix_b_csv": "Appendix - Asset Register.csv",
+        "appendix_b_html": "Appendix - Asset Register.html",
+        "appendix_b_pdf": "Appendix - Asset Register.pdf",
+        "defect_list_html": "Appendix - Defects Register.html",
+        "site_photos_html": "Appendix - Site Photos.html",
+        "site_photos_pdf": "Appendix - Site Photos.pdf",
     },
 }
 

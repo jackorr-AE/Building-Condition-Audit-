@@ -488,10 +488,13 @@ def sync_defects(sheet4: SheetEditor) -> int:
     for csv_row in rows:
         loc = (csv_row.get("Location") or "").strip()
         at = (csv_row.get("Asset Type") or "").strip()
-        desc = (csv_row.get("Defect / Repair Description") or "").strip()
+        defect_desc = (csv_row.get("Defect Description") or "").strip()
+        repair_desc = (csv_row.get("Repair Description") or "").strip()
+        if not defect_desc and not repair_desc:
+            defect_desc = (csv_row.get("Defect / Repair Description") or "").strip()
         timeframe = (csv_row.get("Timeframe") or "").strip()
         photos = extract_photo_ids(csv_row.get("Photo Reference", ""))
-        full_desc = desc if not timeframe else f"{desc} ({timeframe})"
+        full_desc = defect_desc if not timeframe else f"{defect_desc} ({timeframe})"
 
         candidates = []
         for i, row, rec in sheet_rows:
@@ -513,7 +516,12 @@ def sync_defects(sheet4: SheetEditor) -> int:
         row_num = i + 1
         if sheet4.set_value(row, row_num, "asset_type_defects", at):
             updates += 1
-        if sheet4.set_value(row, row_num, "defect_repair_description", full_desc):
+        if "defect_description" in sheet4.header_to_col:
+            if sheet4.set_value(row, row_num, "defect_description", defect_desc):
+                updates += 1
+            if sheet4.set_value(row, row_num, "repair_description", repair_desc):
+                updates += 1
+        elif sheet4.set_value(row, row_num, "defect_repair_description", full_desc):
             updates += 1
         if sheet4.set_value(row, row_num, "location_defect", loc):
             updates += 1

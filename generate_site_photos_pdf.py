@@ -1,4 +1,3 @@
-import os
 import re
 import subprocess
 from datetime import datetime
@@ -6,13 +5,14 @@ from pathlib import Path
 
 from PIL import Image, ImageOps
 
-from fulcrum_report.branding import logo_rel, site_photos_topbar_html
+from fulcrum_report.branding import appendix_page_header_html, file_data_uri, logo_data_uri
 from fulcrum_report.paths import ProjectPaths
 from fulcrum_report.xlsx_io import FulcrumWorkbook
 
 JPEG_QUALITY = 20
 MAX_IMAGE_SIZE = (1400, 1050)
 PHOTOS_PER_PAGE = 9
+REPORT_TITLE = "Appendix - Site Photos"
 
 
 def split_ids(text: str) -> list[str]:
@@ -144,19 +144,26 @@ def chunked(items: list, n: int):
         yield items[i : i + n]
 
 
-def generate_html(photo_items: list[tuple[str, str]], paths: ProjectPaths) -> str:
-    left_logo_rel = logo_rel(paths.logo_left, paths.root)
-    right_logo_rel = logo_rel(paths.logo_right, paths.root)
-    topbar = site_photos_topbar_html(left_logo_rel, right_logo_rel)
-    comp_rel = os.path.relpath(paths.site_photos_dir, paths.root).replace("\\", "/")
+def generate_html(
+    photo_items: list[tuple[Path, str]],
+    paths: ProjectPaths,
+) -> str:
+    left_logo_src = logo_data_uri(paths.logo_left)
+    right_logo_src = logo_data_uri(paths.logo_right)
+    header_html = appendix_page_header_html(
+        left_logo_src=left_logo_src,
+        title=REPORT_TITLE,
+        right_logo_src=right_logo_src,
+    )
 
     cards = []
-    for idx, (filename, desc) in enumerate(photo_items, start=1):
+    for idx, (image_path, desc) in enumerate(photo_items, start=1):
         caption = f"Picture {idx}: {desc}"
+        img_src = file_data_uri(image_path) or ""
         cards.append(
             f"""
             <div class="card">
-              <div class="img-wrap"><img src="{comp_rel}/{filename}" alt="{html_escape(caption)}" /></div>
+              <div class="img-wrap"><img src="{html_escape(img_src)}" alt="{html_escape(caption)}" /></div>
               <div class="cap">{html_escape(caption)}</div>
             </div>
             """
@@ -170,7 +177,7 @@ def generate_html(photo_items: list[tuple[str, str]], paths: ProjectPaths) -> st
         pages.append(
             f"""
             <section class="page">
-              {topbar}
+              {header_html}
               <div class="grid">
                 {''.join(group)}
               </div>
@@ -182,7 +189,7 @@ def generate_html(photo_items: list[tuple[str, str]], paths: ProjectPaths) -> st
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Site Photos</title>
+  <title>{html_escape(REPORT_TITLE)}</title>
   <style>
     @page {{
       size: A4 portrait;
@@ -204,27 +211,31 @@ def generate_html(photo_items: list[tuple[str, str]], paths: ProjectPaths) -> st
       page-break-after: auto;
       break-after: auto;
     }}
-    .topbar {{
-      align-items: center;
-      margin-bottom: 4mm;
-      min-height: 12mm;
-    }}
-    .topbar-dual {{
+    .appendix-header {{
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+      width: 100%;
+      margin: 0 0 4mm 0;
+      min-height: 12mm;
+      flex-shrink: 0;
     }}
-    .topbar-single img {{
+    .appendix-header img {{
       height: 10mm;
-      object-fit: contain;
-      justify-self: start;
-    }}
-    .topbar-dual img {{
-      height: 10mm;
+      max-width: 100%;
       object-fit: contain;
     }}
-    .topbar-dual .logo-left {{ justify-self: start; }}
-    .topbar-dual .logo-right {{ justify-self: end; }}
-    .topbar-empty {{ min-height: 0; margin-bottom: 2mm; }}
+    .appendix-header .left {{ justify-self: start; }}
+    .appendix-header .right {{ justify-self: end; }}
+    .appendix-header .spacer {{ width: 1px; height: 10mm; }}
+    .appendix-header .title {{
+      justify-self: center;
+      text-align: center;
+      font-weight: 700;
+      font-size: 13pt;
+      color: #005b2e;
+      line-height: 1.2;
+    }}
 
     .grid {{
       display: grid;
@@ -330,7 +341,7 @@ def main() -> int:
         prepared.append((taken, dst.name, desc))
 
     prepared.sort(key=lambda x: (x[0], x[1].lower()))
-    ordered = [(name, desc) for _, name, desc in prepared]
+    ordered = [(paths.site_photos_dir / name, desc) for _, name, desc in prepared]
 
     html_doc = generate_html(ordered, paths)
     paths.site_photos_html.parent.mkdir(parents=True, exist_ok=True)

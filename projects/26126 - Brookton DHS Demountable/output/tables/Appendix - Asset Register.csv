@@ -1,0 +1,45 @@
+Building Internal
+Location,Asset Sub-Type,Type/Material,Condition,Quantity,Comments
+Internal - Home Economics,Floor,Vinyl or lino,Poor,,Overall in poor condition there have been numerous instances of splitting of the vinyl due to concealed nails in the underlying floorboard
+Internal - Home Economics,Walls,Gyprock/ACM,Good,,"In overall good condition for its age, no significant defects observed and minimal wear and tear. Although insulation is inadequate and cannot retain heat enough for usage in cold weather."
+Internal - Home Economics,Ceiling,,Good,,"In overall good condition, minimal wear and tear observed"
+Internal - Home Economics,Lights,Halogen,Good,20,All 20 lights are working
+Internal - Home Economics,Joinery,Laminate / Laminate,Fair,,Overall joinery such as cupboards and benchtops all appear to be in fair condition with minor wear and tear observed
+
+Doors
+Location,Asset Sub-Type,Door Type,Door Frame Type,Condition,Comments,Door Closer,Door Jams Fitted,Door is Compliant,Lockable
+Internal - Home Economics,Doors,Timber Hinged External,Aluminium,Fair,Functional,yes,yes,yes,yes
+Internal - Home Economics,Doors,Timber Hinged Internal,Steel,Fair,Functional,no,yes,,yes
+
+Electrical
+Location,Asset Sub-Type,Condition,Comments,Last Test Result
+Internal - Home Economics,Switchboards,Good,Fully functional but locked and restricted access,Not Tested/No Record
+
+Building External
+Location,Asset Sub-Type,Type/Material,Condition,Comments
+External,Roof,Structural,Fair,Wear and tear observed along roof sheeting and external soffit edge framing minor corrosion has been observed throughout
+External,Ramp,Building Element,Fair,External timber accessible ramp with steel hand rails
+External,Subfloor Framing,Structural,Fair,Steelsubfloor framing and CHS stumps. CHS stumps in poor condition
+External,Windows,Building Element,Fair,Aluminium framed windows. Issues with fitment during seasonal changes.
+
+Fire
+Location,Asset Sub-Type,Condition,Comments,Last Test Result,Last Test Date
+Internal - Home Economics,Fire Blanket,Good,Serviced and Tested,Pass,2025-10-01
+Internal - Home Economics,Fire Extinguisher,Good,Serviced and Tested,Pass,2025-10-01
+
+Gas
+Location,Asset Sub-Type,Condition,Comments
+External,Gas,Good,"Last tested 14th of December 2021, used for heating building"
+
+HVAC
+Location,Asset Sub-Type,Type of Aircon Unit,Condition,Comments,Last Test Result
+Internal - Home Economics,Ceiling Exhaust Fans,,Good,Ceiling exhaust fan is functional and in good condition,
+Internal - Home Economics,Reverse Cycle,Reverse cycle suspended package unit,Good,Fully functional,Not Tested/No Record
+Internal - Home Economics,Reverse Cycle,Reverse cycle suspended package unit,Good,Fully functional,Not Tested/No Record
+Internal - Home Economics,Ceiling Exhaust Fans,,Good,Ceiling exhaust fan is functional and in good condition,
+Internal - Home Economics,Ceiling Fans,,Excellent,Functional (8 no.),
+
+Plumbing
+Location,Asset Sub-Type,Condition,Comments,Last Test Result,Last Test Date
+External,Hot Water Unit,Good,Functional,Pass,2021-12-14
+

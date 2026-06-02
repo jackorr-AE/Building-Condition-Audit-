@@ -26,6 +26,22 @@ def split_asset_subtype(asset_type: str) -> str:
     return asset_type or ""
 
 
+def asset_extra_fields(r: dict[str, str]) -> dict[str, str]:
+    return {
+        "Comments": (r.get("descriptioncomments") or "").strip(),
+        "Last Test Date": (r.get("last_test_date") or "").strip(),
+    }
+
+
+INTERNAL_COMMENT_BY_SUBTYPE = {
+    "Floor": "comments_floor",
+    "Walls": "comments_walls",
+    "Ceiling": "comments_ceiling",
+    "Lights": "comments_lights",
+    "Joinery": "comments_joinery",
+}
+
+
 def main() -> int:
     paths = ProjectPaths()
     wb = FulcrumWorkbook.from_project(paths)
@@ -55,6 +71,7 @@ def main() -> int:
                 if benchtop:
                     type_material = f"{type_material} / {benchtop}" if type_material else benchtop
             qty = (r.get(qty_field) or "").strip() if qty_field else ""
+            comment_field = INTERNAL_COMMENT_BY_SUBTYPE.get(subtype, "")
             internal_building_rows.append(
                 {
                     "Location": loc,
@@ -62,6 +79,7 @@ def main() -> int:
                     "Type/Material": type_material,
                     "Condition": cond,
                     "Quantity": qty,
+                    "Comments": (r.get(comment_field) or "").strip() if comment_field else "",
                 }
             )
 
@@ -80,10 +98,18 @@ def main() -> int:
                 "Asset Sub-Type": desc,
                 "Type/Material": typ,
                 "Condition": cond,
+                "Quantity": (r.get("quantity_othercollectableexternal") or "").strip(),
+                "Unit": (r.get("unit_othercollectableexternal") or "").strip(),
+                "Comments": (r.get("comments_othercollectable_external") or "").strip(),
             }
         )
 
-    def section_from_assets(title: str, predicate, columns: list[str], enrich=None) -> tuple[str, list[str], list[dict[str, str]]]:
+    def section_from_assets(
+        title: str,
+        predicate,
+        columns: list[str],
+        enrich=None,
+    ) -> tuple[str, list[str], list[dict[str, str]]]:
         out: list[dict[str, str]] = []
         for r in wb.sheet3:
             at = (r.get("asset_type") or "").strip()
@@ -103,16 +129,37 @@ def main() -> int:
                 "Door is Compliant": (r.get("door_is_compliant") or "").strip(),
                 "Lockable": (r.get("do_they_lock_doors") or "").strip(),
                 "Gate Type": (r.get("gate_type") or "").strip(),
+                "Lockable (Gate)": (r.get("do_they_lock_gates") or "").strip(),
+                "Frame Type": (r.get("frame_type") or "").strip(),
+                "Lockable (Window)": (r.get("do_they_lock_windows") or "").strip(),
                 "Type of Aircon Unit": (r.get("type_of_aircon_unit") or "").strip(),
                 "Type of Boiler": (r.get("type_of_boiler") or "").strip(),
+                "Type of Playground": (r.get("type_of_playground") or "").strip(),
+                "Sandpit Size (m²)": (r.get("size_of_sandpit_m2") or "").strip(),
+                **asset_extra_fields(r),
             }
             if enrich:
                 row.update(enrich(r))
             out.append(row)
         return (title, columns, out)
 
+    standard_asset_columns = [
+        "Barcode No",
+        "Location",
+        "Asset Sub-Type",
+        "Type/Material",
+        "Condition",
+        "Comments",
+        "Last Test Result",
+        "Last Test Date",
+    ]
+
     sections = [
-        ("Building Internal", ["Location", "Asset Sub-Type", "Type/Material", "Condition", "Quantity"], internal_building_rows),
+        (
+            "Building Internal",
+            ["Location", "Asset Sub-Type", "Type/Material", "Condition", "Quantity", "Comments"],
+            internal_building_rows,
+        ),
         section_from_assets(
             "Doors",
             lambda at: at == "Doors/Windows/Gates, Doors",
@@ -123,6 +170,7 @@ def main() -> int:
                 "Door Type",
                 "Door Frame Type",
                 "Condition",
+                "Comments",
                 "Door Closer",
                 "Door Jams Fitted",
                 "Door is Compliant",
@@ -132,38 +180,75 @@ def main() -> int:
         section_from_assets(
             "Electrical",
             lambda at: at.startswith("Electrical,"),
-            ["Barcode No", "Location", "Asset Sub-Type", "Type/Material", "Condition", "Last Test Result"],
+            standard_asset_columns,
         ),
-        ("Building External", ["Location", "Asset Sub-Type", "Type/Material", "Condition"], building_external_rows),
+        (
+            "Building External",
+            ["Location", "Asset Sub-Type", "Type/Material", "Condition", "Quantity", "Unit", "Comments"],
+            building_external_rows,
+        ),
         section_from_assets(
             "Fire",
             lambda at: at.startswith("Fire,"),
-            ["Barcode No", "Location", "Asset Sub-Type", "Condition", "Last Test Result"],
+            standard_asset_columns,
         ),
         section_from_assets(
-            "Gates",
+            "Gates / Fencing",
             lambda at: at == "Doors/Windows/Gates, Gates",
-            ["Barcode No", "Location", "Asset Sub-Type", "Gate Type", "Condition"],
+            [
+                "Barcode No",
+                "Location",
+                "Asset Sub-Type",
+                "Gate Type",
+                "Condition",
+                "Comments",
+                "Lockable (Gate)",
+            ],
+        ),
+        section_from_assets(
+            "Gas",
+            lambda at: at == "Gas",
+            standard_asset_columns,
         ),
         section_from_assets(
             "HVAC",
             lambda at: at.startswith("HVAC,"),
-            ["Barcode No", "Location", "Asset Sub-Type", "Type of Aircon Unit", "Condition", "Last Test Result"],
+            [
+                "Barcode No",
+                "Location",
+                "Asset Sub-Type",
+                "Type/Material",
+                "Type of Aircon Unit",
+                "Condition",
+                "Comments",
+                "Last Test Result",
+                "Last Test Date",
+            ],
         ),
         section_from_assets(
             "Plumbing",
             lambda at: at.startswith("Plumbing,"),
-            ["Barcode No", "Location", "Asset Sub-Type", "Type of Boiler", "Condition", "Last Test Result"],
+            [
+                "Barcode No",
+                "Location",
+                "Asset Sub-Type",
+                "Type/Material",
+                "Type of Boiler",
+                "Condition",
+                "Comments",
+                "Last Test Result",
+                "Last Test Date",
+            ],
         ),
         section_from_assets(
             "Security",
             lambda at: at.startswith("Security,"),
-            ["Barcode No", "Location", "Asset Sub-Type", "Condition", "Last Test Result"],
+            standard_asset_columns,
         ),
         section_from_assets(
             "Defibrillator",
             lambda at: at == "Defibrillator",
-            ["Barcode No", "Location", "Asset Sub-Type", "Condition", "Last Test Result"],
+            standard_asset_columns,
         ),
     ]
 

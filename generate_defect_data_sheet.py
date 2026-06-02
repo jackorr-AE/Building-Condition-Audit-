@@ -1,15 +1,14 @@
 import csv
 import html
-import os
 import re
 from pathlib import Path
 
 from PIL import Image, ImageOps
 
-
-from fulcrum_report.branding import logo_rel, page_header_html
+from fulcrum_report.branding import appendix_page_header_html, file_data_uri, logo_data_uri
 from fulcrum_report.paths import ProjectPaths
-CAPTION_TEXT = "Defects Register"
+
+REPORT_TITLE = "Appendix - Defects Register"
 JPEG_QUALITY = 18
 MAX_IMAGE_WIDTH = 900
 MAX_IMAGE_HEIGHT = 700
@@ -48,7 +47,7 @@ def resolve_local_photo_filename(photo_id: str, photo_source_dir: Path) -> str |
     return None
 
 
-def compress_photo(source_name: str, photo_source_dir: Path, photo_output_dir: Path) -> str | None:
+def compress_photo(source_name: str, photo_source_dir: Path, photo_output_dir: Path) -> Path | None:
     src = photo_source_dir / source_name
     if not src.exists():
         return None
@@ -61,16 +60,18 @@ def compress_photo(source_name: str, photo_source_dir: Path, photo_output_dir: P
             im = im.convert("RGB")
             im.thumbnail((MAX_IMAGE_WIDTH, MAX_IMAGE_HEIGHT), Image.Resampling.LANCZOS)
             im.save(out_path, format="JPEG", optimize=True, quality=JPEG_QUALITY, progressive=True)
-        return out_name
+        return out_path
     except Exception:
         return None
+
+
+def photo_src_for_html(photo_path: Path | None) -> str | None:
+    return file_data_uri(photo_path)
 
 
 def main() -> int:
     paths = ProjectPaths()
     paths.defect_photos_dir.mkdir(parents=True, exist_ok=True)
-    photo_output_rel = os.path.relpath(paths.defect_photos_dir, paths.root).replace("\\", "/")
-    photo_source_rel = os.path.relpath(paths.photos_dir, paths.root).replace("\\", "/")
 
     rows: list[dict[str, str]] = []
     with paths.table_defects_refined.open("r", newline="", encoding="utf-8") as f:
@@ -79,46 +80,57 @@ def main() -> int:
             resolved: list[str] = []
             for pid in extract_photo_ids(row.get("Photo Reference", ""))[:2]:
                 fn = resolve_local_photo_filename(pid, paths.photos_dir)
-                if fn:
-                    compressed = compress_photo(fn, paths.photos_dir, paths.defect_photos_dir)
-                    if compressed:
-                        resolved.append(f"{photo_output_rel}/{compressed}")
-                    else:
-                        resolved.append(f"{photo_source_rel}/{fn}")
+                if not fn:
+                    continue
+                out_path = compress_photo(fn, paths.photos_dir, paths.defect_photos_dir)
+                if not out_path or not out_path.exists():
+                    out_path = paths.photos_dir / fn
+                src = photo_src_for_html(out_path)
+                if src:
+                    resolved.append(src)
             row["_photos"] = "|".join(resolved)
             rows.append(row)
 
-    left_logo_rel = logo_rel(paths.logo_left, paths.root)
-    right_logo_rel = logo_rel(paths.logo_right, paths.root)
+    left_logo_src = logo_data_uri(paths.logo_left)
+    right_logo_src = logo_data_uri(paths.logo_right)
 
     html_rows: list[str] = []
     for r in rows:
         photos = [p for p in (r.get("_photos", "") or "").split("|") if p]
         if photos:
             imgs = "".join(
-                f'<img src="{html.escape(p)}" alt="Defect photo" class="defect-photo" />'
+                f'<img src="{p}" alt="Defect photo" class="defect-photo" />'
                 for p in photos[:2]
             )
             photo_cell = f'<div class="photo-wrap">{imgs}</div>'
         else:
             photo_cell = '<div class="photo-wrap na">N/A</div>'
 
+        defect_desc = (r.get("Defect Description") or r.get("Defect / Repair Description") or "").strip()
+        repair_desc = (r.get("Repair Description") or "").strip()
         html_rows.append(
             "<tr>"
             f"<td>{html.escape((r.get('Area') or '').strip())}</td>"
             f"<td>{html.escape((r.get('Location') or '').strip())}</td>"
             f"<td>{html.escape((r.get('Asset Type') or '').strip())}</td>"
-            f"<td>{html.escape((r.get('Defect / Repair Description') or '').strip())}</td>"
+            f"<td>{html.escape(defect_desc)}</td>"
+            f"<td>{html.escape(repair_desc)}</td>"
             f"<td>{html.escape((r.get('Timeframe') or '').strip())}</td>"
             f"<td class='photo-col'>{photo_cell}</td>"
             "</tr>"
         )
 
+    header_html = appendix_page_header_html(
+        left_logo_src=left_logo_src,
+        title=REPORT_TITLE,
+        right_logo_src=right_logo_src,
+    )
+
     html_doc = f"""<!doctype html>
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>{html.escape(CAPTION_TEXT)}</title>
+  <title>{html.escape(REPORT_TITLE)}</title>
   <style>
     @page {{
       size: A4 landscape;
@@ -129,60 +141,47 @@ def main() -> int:
       margin: 0;
       color: #111;
     }}
-    .page-header {{
-      width: 100%;
-      align-items: center;
-      margin: 0 0 6px 0;
-    }}
-    .page-header-dual {{
+    .appendix-header {{
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+      width: 100%;
+      margin: 0 0 6px 0;
+      min-height: 48px;
     }}
-    .page-header-single {{
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 12px;
-    }}
-    .page-header-title-only {{ display: block; }}
-    .page-header img {{
-      height: 48px;
+    .appendix-header img {{
+      height: 42px;
+      max-width: 100%;
       object-fit: contain;
     }}
-    .page-header-dual .left {{ justify-self: start; }}
-    .page-header-dual .right {{ justify-self: end; }}
-    .page-header-single .left {{ justify-self: start; }}
-    .page-header .title {{
-      font-weight: 700;
-      font-size: 15pt;
-      color: #005b2e;
-      transform: translateY(-2px);
-    }}
-    .page-header-dual .title {{
+    .appendix-header .left {{ justify-self: start; }}
+    .appendix-header .right {{ justify-self: end; }}
+    .appendix-header .spacer {{ width: 1px; height: 42px; }}
+    .appendix-header .title {{
       justify-self: center;
       text-align: center;
-    }}
-    .page-header-single .title {{
-      justify-self: start;
-      text-align: left;
-    }}
-    .page-header-title-only .title {{
-      text-align: center;
+      font-weight: 700;
+      font-size: 14pt;
+      color: #005b2e;
+      padding: 0 8px;
+      line-height: 1.2;
     }}
     table {{
       width: 100%;
       border-collapse: collapse;
       table-layout: fixed;
-      font-size: 12px;
+      font-size: 11px;
     }}
     thead {{
       display: table-header-group;
     }}
     th, td {{
       border: 1px solid #7c8f8d;
-      padding: 6px 8px;
+      padding: 5px 6px;
       vertical-align: top;
       overflow-wrap: break-word;
       word-break: normal;
+      box-sizing: border-box;
     }}
     tr {{
       page-break-inside: avoid;
@@ -196,12 +195,15 @@ def main() -> int:
       border: none;
       padding: 0 0 6px 0;
     }}
-    th {{
+    tr.column-headers th {{
       background: #005b2e;
       color: #fff;
       text-align: left;
       font-weight: 700;
-      white-space: nowrap;
+      white-space: normal;
+      line-height: 1.15;
+      font-size: 9pt;
+      padding: 4px 3px;
     }}
     .photo-col {{
       padding: 0;
@@ -237,24 +239,26 @@ def main() -> int:
 <body>
   <table>
     <colgroup>
+      <col style="width:10%">
+      <col style="width:9%">
       <col style="width:12%">
-      <col style="width:10%">
-      <col style="width:13%">
-      <col style="width:23%">
-      <col style="width:10%">
-      <col style="width:32%">
+      <col style="width:20%">
+      <col style="width:20%">
+      <col style="width:9%">
+      <col style="width:20%">
     </colgroup>
     <thead>
       <tr>
-        <td colspan="6" class="meta-header-cell">
-          {page_header_html(left_logo_rel=left_logo_rel, right_logo_rel=right_logo_rel, title=CAPTION_TEXT)}
+        <td colspan="7" class="meta-header-cell">
+          {header_html}
         </td>
       </tr>
-      <tr>
+      <tr class="column-headers">
         <th>Area</th>
         <th>Location</th>
         <th>Asset Type</th>
-        <th>Defect / Repair Description</th>
+        <th>Defect Description</th>
+        <th>Repair Description</th>
         <th>Timeframe</th>
         <th>Representative Photo</th>
       </tr>
@@ -275,4 +279,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

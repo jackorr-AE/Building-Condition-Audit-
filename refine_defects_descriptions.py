@@ -52,17 +52,33 @@ def main() -> int:
 
     out_rows = []
     for row in rows:
-        desc = row.get("Defect / Repair Description", "")
-        timeframes = extract_timeframes(desc)
+        defect = (row.get("Defect Description") or "").strip()
+        repair = (row.get("Repair Description") or "").strip()
+        if not defect and not repair:
+            legacy = (row.get("Defect / Repair Description") or "").strip()
+            defect = legacy
+
+        combined = f"{defect} {repair}".strip()
+        timeframes = extract_timeframes(combined)
         out = dict(row)
-        out["Defect / Repair Description"] = description_then_action_text(desc)
+        out["Defect Description"] = description_then_action_text(defect)
+        out["Repair Description"] = description_then_action_text(repair)
         out["Timeframe"] = "; ".join(timeframes)
+        out.pop("Defect / Repair Description", None)
         out_rows.append(out)
 
-    fieldnames = ["Area", "Location", "Asset Type", "Defect / Repair Description", "Timeframe", "Photo Reference"]
+    fieldnames = [
+        "Area",
+        "Location",
+        "Asset Type",
+        "Defect Description",
+        "Repair Description",
+        "Timeframe",
+        "Photo Reference",
+    ]
     paths.table_defects_refined.parent.mkdir(parents=True, exist_ok=True)
     with paths.table_defects_refined.open("w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=fieldnames)
+        w = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
         w.writeheader()
         w.writerows(out_rows)
 

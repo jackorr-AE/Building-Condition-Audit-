@@ -1,0 +1,176 @@
+Building Internal
+Location,Asset Sub-Type,Type/Material,Condition,Quantity,Comments
+Office 4 (1st Floor),Floor,Carpets,Good,,
+Office 4 (1st Floor),Walls,"Gyprock (Internal), Concrete (External)",Good,,
+Office 4 (1st Floor),Ceiling,,Good,,
+Office 4 (1st Floor),Lights,LED,Good,2,Working
+Office 3 (1st Floor),Floor,Carpets,Good,,
+Office 3 (1st Floor),Walls,"Gyprock (Internal), Concrete (External)",Good,,
+Office 3 (1st Floor),Ceiling,,Good,,
+Office 3 (1st Floor),Lights,LED,Good,2,Working
+Office 2 (Ground Floor),Floor,Tile,Good,,
+Office 2 (Ground Floor),Walls,"Gyprock (Internal), Concrete (External)",Good,,
+Office 2 (Ground Floor),Ceiling,,Good,,
+Office 2 (Ground Floor),Lights,LED,Good,2,1 light not working
+Main Area,Floor,Tile,Good,,
+Main Area,Walls,"Gyprock (Internal), Concrete (External)",Fair,,
+Main Area,Ceiling,,Good,,
+Main Area,Lights,LED,Good,4,
+Reception,Floor,Tile,Good,,
+Reception,Walls,"Gyprock (Internal), Concrete (External)",Good,,
+Reception,Ceiling,,Good,,
+Reception,Lights,LED,Good,2,
+Reception,Joinery,Laminate / Laminate,Good,,Wooden and Veneer benchtop for the reception
+Server Room,Floor,Tile,Fair,,
+Server Room,Walls,"Gyprock (Internal), Concrete (External)",Fair,,
+Server Room,Ceiling,,Good,,
+Server Room,Lights,LED,Good,1,
+Main Area (1st Floor),Floor,Carpets,Good,,
+Main Area (1st Floor),Walls,"Gyprock (Internal), Concrete (External)",Good,,
+Main Area (1st Floor),Ceiling,,Good,,
+Main Area (1st Floor),Lights,LED,Good,4,
+Staircase,Floor,Carpets,Good,,
+Staircase,Walls,"Gyprock (Internal), Concrete (External)",Good,,
+Staircase,Lights,LED,Good,1,Working
+Staff Room,Floor,Tile,Good,,
+Staff Room,Walls,"Gyprock (Internal), Concrete (External)",Fair,,
+Staff Room,Ceiling,,Good,,
+Staff Room,Lights,LED,Good,2,Working
+Staff Room,Joinery,Laminate / Marble,Good,,Marble top with Wooden cabinets
+Storage Room,Floor,Tile,Good,,
+Storage Room,Walls,"Gyprock (Internal), Concrete (External)",Good,,
+Storage Room,Ceiling,,Good,,
+Storage Room,Lights,LED,Good,1,Working
+Storage Room,Joinery,Laminate,Good,,Wooden Laminated Storage Cabinets
+Female Bathroom / Toilets,Floor,Tile,Good,,
+Female Bathroom / Toilets,Walls,Concrete,Good,,
+Female Bathroom / Toilets,Ceiling,,Good,,
+Female Bathroom / Toilets,Lights,LED,Good,1,
+Female Bathroom / Toilets,Joinery,Laminate,Good,,Steel Framed Wooden bench
+Office 1 (Ground Floor),Floor,Tile,Good,,
+Office 1 (Ground Floor),Walls,"Gyprock (Internal), Concrete (External)",Good,,
+Office 1 (Ground Floor),Ceiling,,Good,,
+Office 1 (Ground Floor),Lights,LED,Good,2,Working
+Male Bathroom / Toilets,Floor,Tile,Good,,
+Male Bathroom / Toilets,Walls,Concrete,Good,,
+Male Bathroom / Toilets,Ceiling,,Good,,
+Male Bathroom / Toilets,Lights,LED,Good,1,
+Guard Room,Floor,Tile,Good,,
+Guard Room,Walls,Concrete,Fair,,
+Guard Room,Ceiling,,Fair,,
+Guard Room,Lights,LED,Good,1,Working
+Yard Shed,Floor,Concrete,Fair,,
+Yard Shed,Walls,Steel,Fair,,
+Yard Shed,Ceiling,,Fair,,General wear and tear observed
+Yard Shed,Lights,Halogen,Fair,12,
+Male Toilet (Rear),Floor,Tile,Fair,,
+Male Toilet (Rear),Walls,Concrete,Fair,,
+Male Toilet (Rear),Ceiling,,Fair,,
+Male Toilet (Rear),Lights,LED,Good,2,
+Female Toilet (Rear),Floor,Tile,Good,,
+Female Toilet (Rear),Walls,Concrete,Fair,,
+Female Toilet (Rear),Ceiling,,Good,,
+Female Toilet (Rear),Lights,LED,Good,1,
+
+Doors
+Location,Asset Sub-Type,Door Type,Door Frame Type,Condition,Comments,Door Closer,Door Jams Fitted,Door is Compliant,Lockable
+Bathroom / Toilets,Doors,Timber Hinged Internal,,Good,Operational,yes,yes,yes,yes
+Bathroom / Toilets,Doors,Timber Hinged Internal,Steel,Good,Operational,yes,yes,yes,yes
+Female Toilet (Rear),Doors,Timber Hinged External,Timber,Good,Operational,yes,yes,yes,yes
+Guard Room,Doors,Glass Hinged,Timber,Good,Operational,yes,yes,yes,yes
+Male Toilet (Rear),Doors,Timber Hinged Internal,Timber,Fair,Operational,yes,yes,yes,yes
+Male Toilet (Rear),Doors,Timber Hinged External,Timber,Good,Operational,yes,yes,yes,yes
+Office 1 (Ground Floor),Doors,Timber Hinged Internal,Timber,Good,Operational,yes,yes,yes,yes
+Office 2 (Ground Floor),Doors,Timber Hinged Internal,Timber,Good,Operational,yes,yes,yes,yes
+Office 3 (1st Floor),Doors,Timber Hinged Internal,Timber,Good,Operational,yes,yes,yes,yes
+Office 4 (1st Floor),Doors,Timber Hinged Internal,Timber,Good,Operational,yes,yes,yes,yes
+Reception,Doors,Aluminium Hinged,Steel,Good,Operational,yes,yes,yes,yes
+Server Room,Doors,Timber Hinged Internal,Timber,Good,Operational,yes,yes,yes,yes
+Staff Room,Doors,Timber Hinged Internal,Timber,Good,Operational,yes,yes,yes,no
+Staff Room,Doors,Aluminium Hinged,Steel,Good,Operational,yes,yes,yes,yes
+Storage Room,Doors,Timber Hinged Internal,Timber,Good,Operational,yes,yes,yes,yes
+
+Electrical
+Location,Asset Sub-Type,Type/Material,Condition,Comments,Last Test Result
+External,Distribution Board,,Good,Operational,No Record
+Server Room,Miscellaneous,Electrical Boxes,Good,Operational,No Record
+External,Switchboards,,,Decommissioned,No Record
+External,Switchboards,,Very Poor,Decommissioned,No Record
+External,Switchboards,,Good,Operational,No Record
+Main Area,Switchboards,,Good,Operational,No Record
+
+Building External
+Location,Asset Sub-Type,Type/Material,Condition,Quantity,Unit,Comments
+External (Office and Carpark),Smoking Area Structure (rear office),Structure,Fair,,,Minor corrosion of flooring surface and bench connections.
+External (Office and Carpark),Water Tanks,,Good,2,no,
+External (Office and Carpark),Windows,,Good,27,no,
+External (Office and Carpark),Staff Carpark,,Good,,,Asphalt finish in generally good condition.
+External (Office and Carpark),Kerbing,,Good,,,
+External (Office and Carpark),Linemarking,,Fair,,,
+External (Office and Carpark),Entrance Cabin,,Good,,,
+External (Office and Carpark),Wheel stops,,Good,,,
+External (Yard),Asphalt,,Good,,,"Overall in good condition, areas of surface crushing due to long term weights of shipping containers"
+External (Yard),Linemarking,,Poor,,,Generally faded in most areas. To be renewed in April 2026.
+External (Yard),Bollards,,Fair,,,"Generally in fair condition, in many instances grout around the bases have cracked and are deteriorating. Many of the bollard rag bolts need to be tightened."
+External (Yard),Fencing and Gates,,Good,,,Generally in good condition. No significant defects observed.
+External (Yard),Drainage Grates,,Good,,,Generally in good condition.
+External (Yard),Lighting,,,19,no,
+External (Yard),Removal of Site Assets,,,,,
+
+Fire
+Location,Asset Sub-Type,Condition,Comments,Last Test Result,Last Test Date
+Main Area (1st Floor),Fire Extinguisher,Good,,Pass,
+Main Area,Fire Extinguisher,Good,,Pass,
+Reception,Fire Extinguisher,Good,,Pass,
+Server Room,Fire Extinguisher,Good,,Pass,
+Staff Room,Fire Extinguisher,Good,,Pass,
+External,Fire Hydrant/Hose Reel,Good,,Pass,
+External,Fire Hydrant/Hose Reel,Good,Operational,Pass,2025-11-01
+External,Fire Hydrant/Hose Reel,Good,Operational,Pass,2025-11-01
+External,Fire Hydrant/Hose Reel,Good,Operational,Pass,2025-11-01
+External,Fire Hydrant/Hose Reel,Good,Operational,Pass,2025-11-01
+External,Fire Hydrant/Hose Reel,,Operational,Pass,2025-11-01
+External,Fire Hydrant/Hose Reel,Good,Operational,Pass,2025-11-01
+External,Fire Hydrant/Hose Reel,Good,Operational,Pass,2025-11-01
+External,Fire Hydrant/Hose Reel,Good,Operational,Pass,2025-11-01
+External,Fire Hydrant/Hose Reel,Good,Operational,Pass,2025-11-01
+External,Fire Hydrant/Hose Reel,Good,Operational,Pass,2025-11-01
+External,Fire Hydrant/Hose Reel,Good,Operational,Pass,2025-11-01
+External,Fire Hydrant/Hose Reel,Good,Operational,Pass,2025-11-01
+External,Fire Hydrant/Hose Reel,Good,Operational,Pass,2025-11-01
+External,Fire Hydrant/Hose Reel,Good,Operational,Pass,2025-11-01
+External,Fire Hydrant/Hose Reel,Good,Operational,Pass,2025-11-01
+
+Gates / Fencing
+Location,Asset Sub-Type,Gate Type,Condition,Comments,Lockable (Gate)
+External,Gates,Steel Fencing,Good,Operational,yes
+External,Gates,Rotating Steel Gate,Good,Operational,yes
+
+HVAC
+Location,Asset Sub-Type,Condition,Comments,Last Test Result
+Bathroom / Toilets,Ceiling Exhaust Fans,Good,,No Record
+Bathroom / Toilets,Ceiling Exhaust Fans,Good,Operational,No Record
+Female Toilet (Rear),Ceiling Exhaust Fans,Good,,No Record
+Male Toilet (Rear),Ceiling Exhaust Fans,Good,,No Record
+Guard Room,Reverse Cycle,Good,Operational,No Record
+Main Area (1st Floor),Reverse Cycle,Good,Operational,No Record
+Main Area,Reverse Cycle,Good,Operational,No Record
+Office 1 (Ground Floor),Reverse Cycle,Good,Operational,No Record
+Office 3 (1st Floor),Reverse Cycle,Good,Operational,No Record
+Office 4 (1st Floor),Reverse Cycle,Good,Operational,No Record
+Server Room,Reverse Cycle,Good,Operational,No Record
+Staff Room,Reverse Cycle,Good,Operational,No Record
+
+Plumbing
+Location,Asset Sub-Type,Condition,Comments,Last Test Result
+External,Hot Water Unit,Good,Operational,No Record
+External,Oily Water Seperator,Good,Operational,No Record
+
+Security
+Location,Asset Sub-Type,Condition,Comments,Last Test Result
+External,Security Alarm System,Good,Operational,No Record
+
+Defibrillator
+Location,Asset Sub-Type,Condition,Last Test Result
+Main Area,Defibrillator,Good,No Record
+
