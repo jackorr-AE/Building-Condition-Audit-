@@ -64,6 +64,7 @@ def main() -> int:
                 "Asset Type": (d.get("asset_type_defects") or "").strip(),
                 "Defect Description": defect,
                 "Repair Description": repair,
+                "Timeframe": (d.get("Timeframe") or d.get("timeframe") or "").strip(),
                 "Photo Reference": photo_reference(d),
             }
         )
@@ -80,6 +81,7 @@ def main() -> int:
         "Asset Type",
         "Defect Description",
         "Repair Description",
+        "Timeframe",
         "Photo Reference",
     ]
     paths.table_defects.parent.mkdir(parents=True, exist_ok=True)

@@ -59,11 +59,17 @@ def main() -> int:
             defect = legacy
 
         combined = f"{defect} {repair}".strip()
-        timeframes = extract_timeframes(combined)
+        explicit_timeframe = (row.get("Timeframe") or "").strip()
+        extracted_timeframes = extract_timeframes(combined)
         out = dict(row)
         out["Defect Description"] = description_then_action_text(defect)
         out["Repair Description"] = description_then_action_text(repair)
-        out["Timeframe"] = "; ".join(timeframes)
+        if explicit_timeframe:
+            out["Timeframe"] = explicit_timeframe
+        elif extracted_timeframes:
+            out["Timeframe"] = "; ".join(extracted_timeframes)
+        else:
+            out["Timeframe"] = ""
         out.pop("Defect / Repair Description", None)
         out_rows.append(out)
 

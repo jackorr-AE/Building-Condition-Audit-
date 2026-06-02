@@ -23,20 +23,26 @@ def split_photo_urls(photo_ref: str) -> list[str]:
 
 
 def extract_photo_ids(photo_ref: str) -> list[str]:
+    """Return lookup keys from photo refs: Fulcrum UUIDs and local filename stems."""
     ids: list[str] = []
     for part in split_photo_urls(photo_ref):
         m = re.search(r"\bid=([0-9a-fA-F-]{36})\b", part)
         if m:
             ids.append(m.group(1))
             continue
-        if re.fullmatch(r"[0-9a-fA-F-]{36}", part):
+        if re.fullmatch(r"[0-9a-fA-F-]{36}", part, flags=re.IGNORECASE):
             ids.append(part)
+            continue
+        stem = Path(part.replace("\\", "/").split("/")[-1]).stem.strip()
+        if stem:
+            ids.append(stem)
     out: list[str] = []
     seen: set[str] = set()
     for i in ids:
-        if i not in seen:
+        key = i.lower()
+        if key not in seen:
             out.append(i)
-            seen.add(i)
+            seen.add(key)
     return out
 
 
@@ -44,6 +50,12 @@ def resolve_local_photo_filename(photo_id: str, photo_source_dir: Path) -> str |
     for ext in (".jpg", ".jpeg", ".png", ".webp"):
         p = photo_source_dir / f"{photo_id}{ext}"
         if p.exists():
+            return p.name
+    target = photo_id.lower()
+    for p in photo_source_dir.iterdir():
+        if not p.is_file() or p.suffix.lower() not in {".jpg", ".jpeg", ".png", ".webp"}:
+            continue
+        if p.stem.lower() == target:
             return p.name
     return None
 

@@ -12,6 +12,7 @@ STEPS = [
     ("unpack_xlsx.py", "Unpack Fulcrum export"),
     ("generate_table_4_1.py", "Table 4-1 — internal rooms"),
     ("generate_table_4_2.py", "Table 4-2/4-3 — external areas"),
+    ("generate_table_4_excel.py", "Table 4-1/4-2 formatted Excel"),
     ("generate_defects_table.py", "Defects table"),
     ("refine_defects_descriptions.py", "Refine defect descriptions"),
     ("generate_appendix_b_asset_register.py", "Appendix B asset register"),

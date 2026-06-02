@@ -9,7 +9,7 @@ Internal - Home Economics,Joinery,Laminate / Laminate,Fair,,Overall joinery such
 Doors
 Location,Asset Sub-Type,Door Type,Door Frame Type,Condition,Comments,Door Closer,Door Jams Fitted,Door is Compliant,Lockable
 Internal - Home Economics,Doors,Timber Hinged External,Aluminium,Fair,Functional,yes,yes,yes,yes
-Internal - Home Economics,Doors,Timber Hinged Internal,Steel,Fair,Functional,no,yes,,yes
+Internal - Home Economics,Doors,Timber Hinged Internal,Steel,Fair,Functional,no,yes,yes,yes
 
 Electrical
 Location,Asset Sub-Type,Condition,Comments,Last Test Result
